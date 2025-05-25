@@ -13,7 +13,7 @@
     --text-color-default: #FFF; --text-color-dark: #222;
     --bg-dialog: #2c3e50; --border-dialog: #34495e;
     --button-subtle-bg: #526476; --button-subtle-border: #3e4c5a; --button-subtle-shadow: #2a333c; --button-subtle-hover: #607488;
-    --bg-options-menu: #2d3436; /* Ook gebruikt voor andere menu-achtige schermen */
+    --bg-options-menu: #2d3436;
     --battle-ui-bg: rgba(25, 25, 30, 0.88);
     --battle-ui-border: #4a4a52;
     --battle-info-box-bg: rgba(35, 35, 40, 0.85);
@@ -211,7 +211,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #teamSelectScreen, #gymLeaderSelectScreen, #gymLeaderDetailScreen,
 #myCardsScreen, #starterSelectScreen, #pcBoxScreen,
 #eliteFourSelectScreen, #eliteFourDetailScreen, #tcgCardsScreen,
-#passwordScreen, #pokemonLeagueScreen, #teamRocketScreen { /* teamRocketScreen toegevoegd */
+#passwordScreen, #pokemonLeagueScreen, #teamRocketScreen, #adminModeScreen { /* adminModeScreen toegevoegd */
     background-color: var(--bg-options-menu);
     align-items: center;
     gap: 2.5vmin;
@@ -223,13 +223,13 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #gymLeaderSelectScreen h2, #gymLeaderDetailScreen h2, #myCardsScreen h2,
 #starterSelectScreen h2, #pcBoxScreen h2,
 #eliteFourSelectScreen h2, #eliteFourDetailScreen h2, #tcgCardsScreen h2,
-#passwordScreen h2, #pokemonLeagueScreen h2, #teamRocketScreen h2 { /* teamRocketScreen toegevoegd */
+#passwordScreen h2, #pokemonLeagueScreen h2, #teamRocketScreen h2, #adminModeScreen h2 { /* adminModeScreen toegevoegd */
     font-size: clamp(1.6em, 6vmin, 2.5em); margin-bottom: 2vmin; text-align: center; flex-shrink: 0;
 }
 
 #optionsMenuScreen, #playMenuScreen,
 #teamSelectScreen, #gymLeaderSelectScreen, #gymLeaderDetailScreen,
-#eliteFourSelectScreen, #eliteFourDetailScreen, #pokemonLeagueScreen, #teamRocketScreen { /* teamRocketScreen toegevoegd */
+#eliteFourSelectScreen, #eliteFourDetailScreen, #pokemonLeagueScreen, #teamRocketScreen, #adminModeScreen { /* adminModeScreen toegevoegd */
     justify-content: center;
 }
 #marketScreen, #inventoryScreen, #teamScreen, #myCardsScreen, #tcgCardsScreen,
@@ -248,7 +248,8 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #passwordScreen .password-button,
 #passwordScreen .password-back-button,
 #pokemonLeagueScreen .league-button,
-#teamRocketScreen .league-button, /* Gebruik dezelfde .league-button styling */
+#teamRocketScreen .league-button,
+#adminModeScreen .admin-button, /* admin-button toegevoegd */
 #pcBoxScreen .pc-back-button {
     font-family: 'Pokemon Pixel', sans-serif; font-size: clamp(1em, 4vmin, 1.5em);
     padding: 2vmin 3.5vmin; width: 80%; max-width: 400px; border-radius: 12px;
@@ -270,14 +271,18 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #tcgCardsScreen .my-cards-back-button,
 #passwordScreen .password-back-button,
 #pokemonLeagueScreen .league-button.back,
-#teamRocketScreen .league-button.back { /* teamRocketScreen toegevoegd */
+#teamRocketScreen .league-button.back,
+#adminModeScreen .admin-button.back { /* admin-button toegevoegd */
     margin-top: auto;
 }
 
 #optionsMenuScreen #btnSaveGameOpt { background-color: #95a5a6; border-color: #7f8c8d; color: #2c3e50;}
 #optionsMenuScreen #btnResetGameOpt, #playMenuScreen #btnQuickBattlePlay { background-color: #e74c3c; border-color: #c0392b;}
 #optionsMenuScreen #btnDarkModeOpt { background-color: #34495e; border-color: #2c3e50;}
-#optionsMenuScreen #btnToggleMusicOpt { background-color: #1abc9c; border-color: #16a085; } /* Nieuwe kleur voor Toggle Music */
+#optionsMenuScreen #btnToggleMenuMusicOpt { background-color: #16a085; border-color: #117a65; } /* Groenachtig */
+#optionsMenuScreen #btnToggleBattleMusicOpt { background-color: #27ae60; border-color: #229954; } /* Ander groen */
+#optionsMenuScreen #btnAdminModeOpt { background-color: #f39c12; border-color: #d35400; } /* Oranje voor admin */
+
 
 #optionsMenuScreen #btnBackToMainOpts, #playMenuScreen #btnBackToMainFromPlay,
 #marketScreen .market-back-button, #inventoryScreen .inventory-back-button,
@@ -289,7 +294,8 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #tcgCardsScreen .my-cards-back-button,
 #passwordScreen .password-back-button,
 #pokemonLeagueScreen .league-button.back,
-#teamRocketScreen .league-button.back { /* teamRocketScreen toegevoegd */
+#teamRocketScreen .league-button.back,
+#adminModeScreen .admin-button.back { /* admin-button toegevoegd */
     background-color: #3498db; border-color: #2980b9;
 }
 
@@ -297,7 +303,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #playMenuScreen #btnWildModePlay { background-color: #2ecc71; border-color: #27ae60; }
 #playMenuScreen #btnEliteBattlesPlay { background-color: #bf00ff; border-color: #a000d4; }
 #playMenuScreen #btnPokemonLeaguePlay { background-color: #e67e22; border-color: #d35400; }
-#playMenuScreen #btnTeamRocketPlay { background-color: #c0392b; border-color: #a12f23; } /* Nieuwe kleur voor Team Rocket */
+#playMenuScreen #btnTeamRocketPlay { background-color: #c0392b; border-color: #a12f23; }
 
 
 #optionsMenuScreen .options-button:active, #playMenuScreen .play-mode-button:active,
@@ -311,7 +317,8 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #passwordScreen .password-button:active,
 #passwordScreen .password-back-button:active,
 #pokemonLeagueScreen .league-button:active,
-#teamRocketScreen .league-button:active { /* teamRocketScreen toegevoegd */
+#teamRocketScreen .league-button:active,
+#adminModeScreen .admin-button:active { /* admin-button toegevoegd */
     transform: translateY(1px); border-bottom-width: 2px; box-shadow: none;
 }
 
@@ -332,11 +339,11 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     border-color: #5c0000;
 }
 
-/* Pokémon League & Team Rocket Screen Styling (hergebruik van .league-...) */
+/* Pokémon League & Team Rocket Screen Styling */
 #pokemonLeagueScreen, #teamRocketScreen {
     justify-content: space-around;
 }
-.league-progress-bar { /* Gebruikt voor zowel League als Team Rocket */
+.league-progress-bar {
     width: 80%;
     height: 20px;
     background-color: #555;
@@ -345,7 +352,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     margin-bottom: 3vmin;
     display: flex;
 }
-.league-opponent-display { /* Gebruikt voor zowel League als Team Rocket */
+.league-opponent-display {
     text-align: center;
     margin-bottom: 3vmin;
 }
@@ -364,6 +371,37 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #teamRocketScreen #btnStartTeamRocketBattle {
     background-color: #2ecc71;
     border-color: #27ae60;
+}
+
+/* Admin Mode Screen Styling */
+#adminModeScreen p {
+    font-size: clamp(1em, 3.5vmin, 1.3em);
+    margin-bottom: 1vmin;
+}
+.admin-input {
+    font-family: 'Pokemon Pixel', sans-serif;
+    font-size: clamp(0.9em, 3vmin, 1.2em);
+    padding: 1.5vmin;
+    width: 70%;
+    max-width: 350px;
+    border-radius: 8px;
+    border: 2px solid var(--button-subtle-border);
+    background-color: rgba(255,255,255,0.1);
+    color: var(--text-color-default);
+    margin-bottom: 2vmin;
+    box-sizing: border-box;
+    text-align: center;
+}
+#adminModeScreen .admin-button { /* Specifieke styling voor admin knoppen als nodig */
+    /* #btnSubmitAdminPassword gebruikt algemene .admin-button styling */
+}
+#adminModeScreen .admin-button.back {
+    /* #btnBackToOptionsFromAdmin gebruikt algemene .admin-button.back styling */
+}
+.admin-message {
+    font-size: clamp(0.9em, 3vmin, 1.1em);
+    margin-top: 1.5vmin;
+    min-height: 1.5em; /* Zodat layout niet springt */
 }
 
 
@@ -407,7 +445,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     opacity: 0.5;
     cursor: not-allowed;
 }
-#myCardsScreen .no-collected-items { /* Zelfde class als tcg, kan generieker */
+#myCardsScreen .no-collected-items {
     text-align: center; font-style: italic; opacity: 0.7; width: 100%; padding: 2vmin;
 }
 
@@ -509,18 +547,18 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 
 
 #myCardsScreen .cards-collection-grid,
-#tcgCardsScreen #tcgCardsGrid { /* #myCardsScreen #collectedEliteFourCardsGrid verwijderd, nu algemener */
+#tcgCardsScreen #tcgCardsGrid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 25vw, 180px), 1fr));
     gap: 2vmin; width: 100%; max-width: 700px; margin-bottom: 3vmin;
     padding: 1vmin; background-color: rgba(0,0,0,0.15); border-radius: 8px;
     max-height: 70vh;
     overflow-y: auto;
 }
-#tcgCardsScreen .collected-card-item img { /* Was #myCardsScreen .collected-card-item img, nu specifieker voor TCG grid */
+#tcgCardsScreen .collected-card-item img {
     width: 100%; height: auto; object-fit: contain; border-radius: 6px; border: 2px solid var(--button-subtle-border);
 }
 
-#tcgCardsScreen .no-collected-items { /* Was #myCardsScreen .no-collected-items, nu specifieker */
+#tcgCardsScreen .no-collected-items {
     text-align: center; font-style: italic; opacity: 0.7; width: 100%; padding: 2vmin;
 }
 
@@ -972,8 +1010,8 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     background-color: var(--battle-button-hover-bg);
 }
 
-/* Shiny Sprite Indicator (optioneel) */
+/* Shiny Sprite Indicator */
 .shiny-sprite-indicator {
-    /* Voeg hier een subtiele visuele cue toe als je wilt, bijv. een border of glow */
-    /* box-shadow: 0 0 5px 2px gold; */
+    /* Je kunt hier eventueel een border of filter toevoegen als je dat wilt */
+    /* filter: drop-shadow(0 0 3px gold); */
 }

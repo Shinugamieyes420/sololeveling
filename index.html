@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Blazing Thunder - Pokemon master (Team Rocket & Volume Update)</title> <!-- Versie update -->
+    <title>Blazing Thunder - Pokemon master (Admin & Music Update)</title> <!-- Versie update -->
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> <!-- Anime.js CDN -->
 </head>
@@ -81,7 +81,7 @@
             <button class="play-mode-button" id="btnGymBattlePlay">GYM BATTLE</button>
             <button class="play-mode-button" id="btnEliteBattlesPlay">ELITE FOUR</button>
             <button class="play-mode-button" id="btnPokemonLeaguePlay">POKéMON LEAGUE</button>
-            <button class="play-mode-button" id="btnTeamRocketPlay">TEAM ROCKET</button> <!-- NIEUW: Team Rocket Mode Knop -->
+            <button class="play-mode-button" id="btnTeamRocketPlay">TEAM ROCKET</button>
             <button class="play-mode-button" id="btnWildModePlay">WILD MODE</button>
             <button class="play-mode-button" id="btnBackToMainFromPlay">BACK</button>
         </div>
@@ -91,9 +91,22 @@
             <button class="options-button" id="btnSaveGameOpt">SAVE GAME</button>
             <button class="options-button" id="btnResetGameOpt">RESET GAME</button>
             <button class="options-button" id="btnDarkModeOpt">DARK MODE</button>
-            <button class="options-button" id="btnToggleMusicOpt">TOGGLE MUSIC</button> <!-- NIEUW: Volume Knop -->
+            <button class="options-button" id="btnToggleMenuMusicOpt">TOGGLE MENU MUSIC</button> <!-- NIEUW -->
+            <button class="options-button" id="btnToggleBattleMusicOpt">TOGGLE BATTLE MUSIC</button> <!-- NIEUW -->
+            <button class="options-button" id="btnAdminModeOpt">ADMIN MODE</button> <!-- NIEUW -->
             <button class="options-button" id="btnBackToMainOpts">BACK</button>
         </div>
+
+        <!-- Admin Mode Screen (NIEUW) -->
+        <div id="adminModeScreen" class="screen" style="display: none;">
+            <h2>ADMIN MODE</h2>
+            <p>Enter Admin Password:</p>
+            <input type="password" id="adminPasswordInput" class="admin-input">
+            <button id="btnSubmitAdminPassword" class="admin-button">SUBMIT</button>
+            <p id="adminMessage" class="admin-message"></p>
+            <button id="btnBackToOptionsFromAdmin" class="admin-button back">BACK TO OPTIONS</button>
+        </div>
+
 
         <div id="passwordScreen" class="screen" style="display: none;">
             <h2>PASSWORD MANAGEMENT</h2>
@@ -249,11 +262,10 @@
             <button id="btnBackToPlayMenuFromLeague" class="league-button back">BACK TO PLAY MODES</button>
         </div>
 
-        <!-- Team Rocket Screen (NIEUW) -->
+        <!-- Team Rocket Screen -->
         <div id="teamRocketScreen" class="screen" style="display: none;">
             <h2>TEAM ROCKET ENCOUNTER</h2>
             <div id="teamRocketProgress" class="league-progress-bar">
-                <!-- Dynamisch gevuld met voortgang -->
             </div>
             <div id="currentTeamRocketOpponentDisplay" class="league-opponent-display">
                 <p>Your next opponent is: <span id="teamRocketOpponentName"></span></p>
@@ -338,7 +350,7 @@
                 <div class="info-line"><span class="name" id="playerPokemonName"></span><span id="playerStatusTag" class="status-tag" style="display:none;"></span></div>
                  <div class="hp-bar-container"><span>HP</span><div class="hp-bar-fill" id="playerHpFill"></div></div>
                  <div class="hp-numbers" id="playerHpNumbers"></div>
-                 <div class.team-status" id="playerTeamStatus"></div>
+                 <div class="team-status" id="playerTeamStatus"></div>
             </div>
             <div class="battle-ui-bottom">
                 <div class="battle-textbox" id="battleTextbox"><p id="battleMessage"></p></div>
@@ -368,7 +380,8 @@
 
     </div>
 
-    <!-- Audio Elements for Battle Music -->
+    <!-- Audio Elements -->
+    <audio id="introMusic" src="music/Intro.mp3" loop></audio> <!-- NIEUW: Pad aangepast -->
     <audio id="battleMusic1" src="music/battlemusic1.mp3" loop></audio>
     <audio id="battleMusic2" src="music/battlemusic2.mp3" loop></audio>
 
