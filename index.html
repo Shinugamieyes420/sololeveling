@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Blazing Thunder - Pokemon master (Pokémon League & TCG Updates)</title> <!-- Versie update -->
+    <title>Blazing Thunder - Pokemon master (Team Rocket & Volume Update)</title> <!-- Versie update -->
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> <!-- Anime.js CDN -->
 </head>
@@ -16,10 +16,14 @@
         </div>
 
         <div id="characterSelectScreen" class="screen" style="display: none;">
-             <h2>Kies een trainer</h2><div class="trainers-grid">
+             <h2>Kies een trainer</h2>
+             <div class="trainers-grid">
                  <div class="trainer-card" data-trainer="Bea"><img src="https://www.pokemonkaart.nl/wp-content/uploads/Bea-TG25-Astral-Radiance.png" alt="Trainer Bea"><p>Bea</p></div>
                  <div class="trainer-card" data-trainer="Brock"><img src="https://www.pokemonkaart.nl/wp-content/uploads/brocks-scouting-179-sv9-eng.png" alt="Trainer Brock"><p>Brock</p></div>
                  <div class="trainer-card" data-trainer="Giovanni"><img src="https://www.pokemonkaart.nl/wp-content/uploads/Giovannis-Charisma-204-151.jpg" alt="Trainer Giovanni"><p>Giovanni</p></div>
+                 <div class="trainer-card" data-trainer="Red"><img src="https://www.pokemonkaart.nl/wp-content/uploads/Unbroken-Bonds_Red%E2%80%99s-Challenge-1.jpg" alt="Trainer Red"><p>Red</p></div>
+                 <div class="trainer-card" data-trainer="Blue"><img src="https://www.pokemonkaart.nl/wp-content/uploads/Unified-Minds_Blue%E2%80%99s-Tactics-1.jpg" alt="Trainer Blue"><p>Blue</p></div>
+                 <div class="trainer-card" data-trainer="Hop"><img src="https://www.pokemonkaart.nl/wp-content/uploads/Champions-Path_Hop.jpg" alt="Trainer Hop"><p>Hop</p></div>
              </div>
         </div>
 
@@ -63,7 +67,7 @@
                      <button class="submenu-tab" id="tabMarket">MARKET</button>
                      <button class="submenu-tab" id="tabInventory">INVENTORY</button>
                      <button class="submenu-tab" id="tabTeam">TEAM</button>
-                     <button class="submenu-tab" id="tabMyCards">MY CARDS</button> <!-- Badges verwijderd uit naam -->
+                     <button class="submenu-tab" id="tabMyCards">MY CARDS</button>
                      <button class="submenu-tab" id="tabTcgCards">MY TCG CARDS</button>
                      <button class="submenu-tab" id="tabMyPc">MY PC</button>
                      <button class="submenu-tab" id="tabPassword">PASSWORD</button>
@@ -76,7 +80,8 @@
             <button class="play-mode-button" id="btnQuickBattlePlay">QUICK BATTLE</button>
             <button class="play-mode-button" id="btnGymBattlePlay">GYM BATTLE</button>
             <button class="play-mode-button" id="btnEliteBattlesPlay">ELITE FOUR</button>
-            <button class="play-mode-button" id="btnPokemonLeaguePlay">POKéMON LEAGUE</button> <!-- NIEUWE SPELMODUS -->
+            <button class="play-mode-button" id="btnPokemonLeaguePlay">POKéMON LEAGUE</button>
+            <button class="play-mode-button" id="btnTeamRocketPlay">TEAM ROCKET</button> <!-- NIEUW: Team Rocket Mode Knop -->
             <button class="play-mode-button" id="btnWildModePlay">WILD MODE</button>
             <button class="play-mode-button" id="btnBackToMainFromPlay">BACK</button>
         </div>
@@ -86,6 +91,7 @@
             <button class="options-button" id="btnSaveGameOpt">SAVE GAME</button>
             <button class="options-button" id="btnResetGameOpt">RESET GAME</button>
             <button class="options-button" id="btnDarkModeOpt">DARK MODE</button>
+            <button class="options-button" id="btnToggleMusicOpt">TOGGLE MUSIC</button> <!-- NIEUW: Volume Knop -->
             <button class="options-button" id="btnBackToMainOpts">BACK</button>
         </div>
 
@@ -123,7 +129,7 @@
                     <p class="item-price">Price: 10 Coins</p>
                     <button class="buy-button" data-item-name="Great Ball" data-price="10">BUY</button>
                 </div>
-                <div class="market-item" data-item-id="ultraball"> <!-- NIEUW: Ultra Ball -->
+                <div class="market-item" data-item-id="ultraball">
                     <img class="item-icon ultraball-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Ultra Ball">
                     <p class="item-name">Ultra Ball</p>
                     <p class="item-price">Price: 15 Coins</p>
@@ -234,7 +240,6 @@
         <div id="pokemonLeagueScreen" class="screen" style="display: none;">
             <h2>POKéMON LEAGUE CHALLENGE</h2>
             <div id="pokemonLeagueProgress" class="league-progress-bar">
-                <!-- Dynamisch gevuld met voortgang -->
             </div>
             <div id="currentLeagueOpponentDisplay" class="league-opponent-display">
                 <p>Your next opponent is: <span id="leagueOpponentName"></span></p>
@@ -244,10 +249,24 @@
             <button id="btnBackToPlayMenuFromLeague" class="league-button back">BACK TO PLAY MODES</button>
         </div>
 
+        <!-- Team Rocket Screen (NIEUW) -->
+        <div id="teamRocketScreen" class="screen" style="display: none;">
+            <h2>TEAM ROCKET ENCOUNTER</h2>
+            <div id="teamRocketProgress" class="league-progress-bar">
+                <!-- Dynamisch gevuld met voortgang -->
+            </div>
+            <div id="currentTeamRocketOpponentDisplay" class="league-opponent-display">
+                <p>Your next opponent is: <span id="teamRocketOpponentName"></span></p>
+                <img id="teamRocketOpponentCard" src="https://www.pokemonkaart.nl/wp-content/uploads/Fates-Collide_Team-Rocket%E2%80%99s-Handiwork.jpg" alt="Team Rocket Grunt Card">
+            </div>
+            <button id="btnStartTeamRocketBattle" class="league-button">START BATTLE</button>
+            <button id="btnBackToPlayMenuFromTeamRocket" class="league-button back">BACK TO PLAY MODES</button>
+        </div>
+
 
         <div id="myCardsScreen" class="screen" style="display: none;">
             <h2>MY CARDS</h2>
-            <h3>Collected Gym Leader & Elite Four Cards</h3>
+            <h3>Collected Trainer & Special Cards</h3>
             <div class="card-viewer-controls">
                 <button id="prevCardButton" class="card-nav-btn" disabled><</button>
                 <img id="displayedCardImage" src="" alt="Displayed Card">
@@ -285,11 +304,10 @@
         </div>
 
 
-        <!-- TCG Pack Opening Animation Overlay (Hidden by default) -->
+        <!-- TCG Pack Opening Animation Overlay -->
         <div id="tcgPackOpeningOverlay" class="dialog-overlay" style="display: none;">
             <div class="tcg-pack-animation-container">
                 <p>Opening Pack...</p>
-                <!-- Initial animation content here -->
             </div>
             <div id="revealedTcgCardContainer" class="revealed-tcg-card-container" style="display:none;">
                 <div class="revealed-card-display">
@@ -320,7 +338,7 @@
                 <div class="info-line"><span class="name" id="playerPokemonName"></span><span id="playerStatusTag" class="status-tag" style="display:none;"></span></div>
                  <div class="hp-bar-container"><span>HP</span><div class="hp-bar-fill" id="playerHpFill"></div></div>
                  <div class="hp-numbers" id="playerHpNumbers"></div>
-                 <div class="team-status" id="playerTeamStatus"></div>
+                 <div class.team-status" id="playerTeamStatus"></div>
             </div>
             <div class="battle-ui-bottom">
                 <div class="battle-textbox" id="battleTextbox"><p id="battleMessage"></p></div>

@@ -30,7 +30,7 @@
 
     --item-icon-pokeball: url('https://www.serebii.net/itemdex/sprites/sv/pokeball.png');
     --item-icon-greatball: url('https://www.serebii.net/itemdex/sprites/sv/greatball.png');
-    --item-icon-ultraball: url('https://www.serebii.net/itemdex/sprites/sv/ultraball.png'); /* NIEUW */
+    --item-icon-ultraball: url('https://www.serebii.net/itemdex/sprites/sv/ultraball.png');
     --item-icon-evolutionstone: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIj48cGF0aCBmaWxsPSIjRkZBRjAwIiBkPSJNMTIgMi42NWwtMi4wOTEgNC4yMDkgNC42NjcgMi4xODItMi41NzYgNi4zOTIgNi4xODQgMS4wMzktMy41NzkgNS40MDctNC45NTUtNC4wNjUtNC45NTUgNC4wNjUtMy41NzktNS40MDcgNi4xODQtMS4wMzktMi41NzYtNi4zOTIgNC42NjctMi4xODJ6Ii8+PHBhdGggZmlsbD0iI0ZGRDg4MiIgZD0iTTEyIDRsLTEuNSA0IDQgMi0yIDUtNSAyLTEuNS01IDEuNS01LTUgMi0yLTQtMS41LTQgMS41IDIgMyA0IDMtNC0zLTQtMyAyIDUgMiA1eiIvPjwvc3ZnPg==');
     --item-icon-tcgpack: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMDA3NUJGIiBkPSJNMjAuNSA0LjVIMy41QzIuNjcgNC41IDIgNS4xNyAyIDZWMTlDMiAxOS44MyAyLjY3IDIwLjUgMy41IDIwLjVIMjAuNUMyMS4zMyAyMC41IDIyIDE5LjgzIDIyIDE5VjdDMjIgNS4xNyAyMS4zMyA0LjUgMjAuNSA0LjVaTTQgN0gyMFYxMUg0VjdaTTQgMTNIMTBWMTVINFYxM1pNNCAxN0gxMFYxOUg0VjE3Wk0xMiAxM0gxNFYxNUgxMlYxM1pNMTYgMTNIMThWMTVIMTZWMTNaTTEyIDE3SDE0VjE5SDEyVjE3Wk0xNiAxN0gxOFYxOUgxNlYxN1oiLz48cGF0aCBmaWxsPSIjRkZDMzA5IiBkPSJNMjAgMTFWMThIMjFWMTEiLz48cGF0aCBmaWxsPSIjRkZDMzA5IiBkPSJNMjEgN0gyMFYxMEgyMVY3WiIvPjxwYXRoIGZpbGw9IiNGRkMzMDkiIGQ9Ik0xMiA4QzExLjQ1IDggMTEgOC40NSAxMSA5VjEwLjVDMTEgMTEuMDUsMTEuNDUgMTEuNSAxMiAxMS41QzEyLjU1IDExLjUgMTMgMTEuMDUgMTMgMTAuNVY5QzEzIDguNDUgMTIuNTUgOCAxMiA4WiIvPjwvc3ZnPg==');
     --pokeball-svg-battle: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSI5IiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTEsMTAgYTksOSAwIDAsMSAxOCwwIiBmaWxsPSJyZWQiLz48cGF0aCBkPSJNMSwxMCBoMTgiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjMiIGZpbGw9IndoaXRlIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+PC9zdmc+');
@@ -211,7 +211,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #teamSelectScreen, #gymLeaderSelectScreen, #gymLeaderDetailScreen,
 #myCardsScreen, #starterSelectScreen, #pcBoxScreen,
 #eliteFourSelectScreen, #eliteFourDetailScreen, #tcgCardsScreen,
-#passwordScreen, #pokemonLeagueScreen {
+#passwordScreen, #pokemonLeagueScreen, #teamRocketScreen { /* teamRocketScreen toegevoegd */
     background-color: var(--bg-options-menu);
     align-items: center;
     gap: 2.5vmin;
@@ -223,13 +223,13 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #gymLeaderSelectScreen h2, #gymLeaderDetailScreen h2, #myCardsScreen h2,
 #starterSelectScreen h2, #pcBoxScreen h2,
 #eliteFourSelectScreen h2, #eliteFourDetailScreen h2, #tcgCardsScreen h2,
-#passwordScreen h2, #pokemonLeagueScreen h2 {
+#passwordScreen h2, #pokemonLeagueScreen h2, #teamRocketScreen h2 { /* teamRocketScreen toegevoegd */
     font-size: clamp(1.6em, 6vmin, 2.5em); margin-bottom: 2vmin; text-align: center; flex-shrink: 0;
 }
 
 #optionsMenuScreen, #playMenuScreen,
 #teamSelectScreen, #gymLeaderSelectScreen, #gymLeaderDetailScreen,
-#eliteFourSelectScreen, #eliteFourDetailScreen, #pokemonLeagueScreen {
+#eliteFourSelectScreen, #eliteFourDetailScreen, #pokemonLeagueScreen, #teamRocketScreen { /* teamRocketScreen toegevoegd */
     justify-content: center;
 }
 #marketScreen, #inventoryScreen, #teamScreen, #myCardsScreen, #tcgCardsScreen,
@@ -248,6 +248,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #passwordScreen .password-button,
 #passwordScreen .password-back-button,
 #pokemonLeagueScreen .league-button,
+#teamRocketScreen .league-button, /* Gebruik dezelfde .league-button styling */
 #pcBoxScreen .pc-back-button {
     font-family: 'Pokemon Pixel', sans-serif; font-size: clamp(1em, 4vmin, 1.5em);
     padding: 2vmin 3.5vmin; width: 80%; max-width: 400px; border-radius: 12px;
@@ -268,13 +269,16 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #myCardsScreen .my-cards-back-button,
 #tcgCardsScreen .my-cards-back-button,
 #passwordScreen .password-back-button,
-#pokemonLeagueScreen .league-button.back {
+#pokemonLeagueScreen .league-button.back,
+#teamRocketScreen .league-button.back { /* teamRocketScreen toegevoegd */
     margin-top: auto;
 }
 
 #optionsMenuScreen #btnSaveGameOpt { background-color: #95a5a6; border-color: #7f8c8d; color: #2c3e50;}
 #optionsMenuScreen #btnResetGameOpt, #playMenuScreen #btnQuickBattlePlay { background-color: #e74c3c; border-color: #c0392b;}
 #optionsMenuScreen #btnDarkModeOpt { background-color: #34495e; border-color: #2c3e50;}
+#optionsMenuScreen #btnToggleMusicOpt { background-color: #1abc9c; border-color: #16a085; } /* Nieuwe kleur voor Toggle Music */
+
 #optionsMenuScreen #btnBackToMainOpts, #playMenuScreen #btnBackToMainFromPlay,
 #marketScreen .market-back-button, #inventoryScreen .inventory-back-button,
 #teamScreen .team-back-button,
@@ -284,7 +288,8 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #eliteFourDetailScreen .elite-four-detail-button.back,
 #tcgCardsScreen .my-cards-back-button,
 #passwordScreen .password-back-button,
-#pokemonLeagueScreen .league-button.back {
+#pokemonLeagueScreen .league-button.back,
+#teamRocketScreen .league-button.back { /* teamRocketScreen toegevoegd */
     background-color: #3498db; border-color: #2980b9;
 }
 
@@ -292,6 +297,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #playMenuScreen #btnWildModePlay { background-color: #2ecc71; border-color: #27ae60; }
 #playMenuScreen #btnEliteBattlesPlay { background-color: #bf00ff; border-color: #a000d4; }
 #playMenuScreen #btnPokemonLeaguePlay { background-color: #e67e22; border-color: #d35400; }
+#playMenuScreen #btnTeamRocketPlay { background-color: #c0392b; border-color: #a12f23; } /* Nieuwe kleur voor Team Rocket */
 
 
 #optionsMenuScreen .options-button:active, #playMenuScreen .play-mode-button:active,
@@ -304,7 +310,8 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #tcgCardsScreen .my-cards-back-button:active,
 #passwordScreen .password-button:active,
 #passwordScreen .password-back-button:active,
-#pokemonLeagueScreen .league-button:active {
+#pokemonLeagueScreen .league-button:active,
+#teamRocketScreen .league-button:active { /* teamRocketScreen toegevoegd */
     transform: translateY(1px); border-bottom-width: 2px; box-shadow: none;
 }
 
@@ -325,11 +332,11 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     border-color: #5c0000;
 }
 
-/* Pokémon League Screen Styling */
-#pokemonLeagueScreen {
+/* Pokémon League & Team Rocket Screen Styling (hergebruik van .league-...) */
+#pokemonLeagueScreen, #teamRocketScreen {
     justify-content: space-around;
 }
-.league-progress-bar {
+.league-progress-bar { /* Gebruikt voor zowel League als Team Rocket */
     width: 80%;
     height: 20px;
     background-color: #555;
@@ -338,7 +345,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     margin-bottom: 3vmin;
     display: flex;
 }
-.league-opponent-display {
+.league-opponent-display { /* Gebruikt voor zowel League als Team Rocket */
     text-align: center;
     margin-bottom: 3vmin;
 }
@@ -353,7 +360,8 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     border: 3px solid var(--border-trainer-frame);
     border-radius: 10px;
 }
-#pokemonLeagueScreen #btnStartLeagueBattle {
+#pokemonLeagueScreen #btnStartLeagueBattle,
+#teamRocketScreen #btnStartTeamRocketBattle {
     background-color: #2ecc71;
     border-color: #27ae60;
 }
@@ -399,7 +407,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     opacity: 0.5;
     cursor: not-allowed;
 }
-#myCardsScreen .no-collected-items {
+#myCardsScreen .no-collected-items { /* Zelfde class als tcg, kan generieker */
     text-align: center; font-style: italic; opacity: 0.7; width: 100%; padding: 2vmin;
 }
 
@@ -501,20 +509,18 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 
 
 #myCardsScreen .cards-collection-grid,
-#myCardsScreen #collectedEliteFourCardsGrid, #tcgCardsScreen #tcgCardsGrid {
+#tcgCardsScreen #tcgCardsGrid { /* #myCardsScreen #collectedEliteFourCardsGrid verwijderd, nu algemener */
     display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 25vw, 180px), 1fr));
     gap: 2vmin; width: 100%; max-width: 700px; margin-bottom: 3vmin;
     padding: 1vmin; background-color: rgba(0,0,0,0.15); border-radius: 8px;
     max-height: 70vh;
     overflow-y: auto;
 }
-#myCardsScreen .collected-card-item img,
-#tcgCardsScreen .collected-card-item img {
+#tcgCardsScreen .collected-card-item img { /* Was #myCardsScreen .collected-card-item img, nu specifieker voor TCG grid */
     width: 100%; height: auto; object-fit: contain; border-radius: 6px; border: 2px solid var(--button-subtle-border);
 }
 
-#myCardsScreen .no-collected-items,
-#tcgCardsScreen .no-collected-items {
+#tcgCardsScreen .no-collected-items { /* Was #myCardsScreen .no-collected-items, nu specifieker */
     text-align: center; font-style: italic; opacity: 0.7; width: 100%; padding: 2vmin;
 }
 
@@ -893,13 +899,13 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Reduced gap */
-    background-color: rgba(0,0,0,0.8); /* Darker background for more focus */
-    padding: 15px; /* Slightly reduced padding */
+    gap: 10px;
+    background-color: rgba(0,0,0,0.8);
+    padding: 15px;
     border-radius: 10px;
     border: 2px solid gold;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); /* Enhanced shadow */
-    max-width: 90vw; /* Ensure it fits well */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    max-width: 90vw;
     max-height: 90svh;
 }
 .revealed-card-display {
@@ -907,12 +913,12 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 10px; /* Gap between card and nav buttons */
+    gap: 10px;
     margin-bottom: 5px;
 }
 #revealedTcgCardImage {
-    max-width: 70%; /* Adjust as needed, allowing space for buttons */
-    max-height: 55vh; /* Adjust as needed */
+    max-width: 70%;
+    max-height: 55vh;
     object-fit: contain;
     border: 3px solid gold;
     border-radius: 10px;
@@ -928,7 +934,7 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s;
-    align-self: center; /* Align with the card image */
+    align-self: center;
 }
 .tcg-reveal-nav-btn:hover {
     background-color: var(--button-subtle-hover);
@@ -939,17 +945,17 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 }
 
 #revealedTcgCardName {
-    font-size: clamp(1em, 3vmin, 1.2em); /* Adjusted size */
+    font-size: clamp(1em, 3vmin, 1.2em);
     font-weight: bold;
     color: var(--text-color-default);
-    margin-top: 5px; /* Reduced margin */
+    margin-top: 5px;
     text-align: center;
 }
 #revealedTcgCardIndexIndicator {
     font-size: clamp(0.8em, 2.5vmin, 1em);
     color: var(--text-color-default);
     opacity: 0.8;
-    margin-top: 2px; /* Small margin */
+    margin-top: 2px;
 }
 #closeTcgRevealButton {
     font-family: 'Pokemon Pixel', sans-serif;
@@ -960,8 +966,14 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
     border: 2px solid var(--battle-button-border);
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px; /* Reduced margin */
+    margin-top: 10px;
 }
 #closeTcgRevealButton:hover {
     background-color: var(--battle-button-hover-bg);
+}
+
+/* Shiny Sprite Indicator (optioneel) */
+.shiny-sprite-indicator {
+    /* Voeg hier een subtiele visuele cue toe als je wilt, bijv. een border of glow */
+    /* box-shadow: 0 0 5px 2px gold; */
 }
