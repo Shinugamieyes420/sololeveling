@@ -3,8 +3,8 @@ let currentScreen = 'intro';
 let selectedTrainerData = null;
 let tempSelectedStarter = null;
 let isNewGameSetup = false;
-let isMenuMusicEnabled = true; // Nieuw
-let isBattleMusicEnabled = true; // Nieuw
+let isMenuMusicEnabled = true;
+let isBattleMusicEnabled = true;
 
 let battleState = {
     playerTeam: [],
@@ -47,7 +47,7 @@ let currentTcgPage = 1;
 const TCG_CARDS_PER_PACK = 3;
 const TEAM_ROCKET_GRUNTS_TO_DEFEAT = 3;
 const TEAM_ROCKET_POKEMON_COUNT = 3;
-const ADMIN_PASSWORD = "Admin01!"; // Nieuw
+const ADMIN_PASSWORD = "Admin01!";
 
 const gameBody = document.getElementById('gameBody');
 const screens = {
@@ -60,7 +60,7 @@ const screens = {
     mainMenu: document.getElementById('mainMenuScreen'),
     playMenu: document.getElementById('playMenuScreen'),
     optionsMenu: document.getElementById('optionsMenuScreen'),
-    adminMode: document.getElementById('adminModeScreen'), // Nieuw
+    adminMode: document.getElementById('adminModeScreen'),
     market: document.getElementById('marketScreen'),
     inventory: document.getElementById('inventoryScreen'),
     team: document.getElementById('teamScreen'),
@@ -100,14 +100,13 @@ const btnOptions = document.getElementById('btnOptions');
 const btnSaveGameOpt = document.getElementById('btnSaveGameOpt');
 const btnResetGameOpt = document.getElementById('btnResetGameOpt');
 const btnDarkModeOpt = document.getElementById('btnDarkModeOpt');
-const btnToggleMenuMusicOpt = document.getElementById('btnToggleMenuMusicOpt'); // Nieuw
-const btnToggleBattleMusicOpt = document.getElementById('btnToggleBattleMusicOpt'); // Nieuw
-const btnAdminModeOpt = document.getElementById('btnAdminModeOpt'); // Nieuw
+const btnToggleMenuMusicOpt = document.getElementById('btnToggleMenuMusicOpt');
+const btnToggleBattleMusicOpt = document.getElementById('btnToggleBattleMusicOpt');
+const btnAdminModeOpt = document.getElementById('btnAdminModeOpt');
 const btnBackToMainOpts = document.getElementById('btnBackToMainOpts');
 const resetConfirmYesButton = document.getElementById('resetConfirmYes');
 const resetConfirmNoButton = document.getElementById('resetConfirmNo');
 
-// Admin Mode Screen Elementen
 const adminPasswordInput = document.getElementById('adminPasswordInput');
 const btnSubmitAdminPassword = document.getElementById('btnSubmitAdminPassword');
 const adminMessageEl = document.getElementById('adminMessage');
@@ -246,7 +245,7 @@ let currentMusicIndex = 0;
 function startIntroMusic() {
     if (!isMenuMusicEnabled || !introMusicAudio) return;
     stopBattleMusic();
-    if (introMusicAudio.paused) { // Alleen starten als het nog niet speelt
+    if (introMusicAudio.paused) {
         introMusicAudio.volume = 0.15;
         introMusicAudio.currentTime = 0;
         introMusicAudio.play().catch(e => console.warn("Intro music play failed:", e));
@@ -307,7 +306,6 @@ function stopBattleMusic() {
 function toggleMenuMusic() {
     isMenuMusicEnabled = !isMenuMusicEnabled;
     if (isMenuMusicEnabled) {
-        // Start alleen intromuziek als we in een relevant scherm zijn (niet battle)
         if (currentScreen !== 'battle' && currentScreen !== 'intro' && currentScreen !== 'characterSelect' && currentScreen !== 'starterSelect') {
             startIntroMusic();
         }
@@ -323,7 +321,6 @@ function toggleMenuMusic() {
 function toggleBattleMusic() {
     isBattleMusicEnabled = !isBattleMusicEnabled;
     if (isBattleMusicEnabled) {
-        // Start battlemuziek alleen als we daadwerkelijk in een battle zijn
         if (currentScreen === 'battle') {
             startBattleMusic();
         }
@@ -360,7 +357,7 @@ const trainersData = {
     "Blue": { name: "Blue", imageUrl: "https://www.pokemonkaart.nl/wp-content/uploads/Unified-Minds_Blue%E2%80%99s-Tactics-1.jpg" },
     "Hop": { name: "Hop", imageUrl: "https://www.pokemonkaart.nl/wp-content/uploads/Champions-Path_Hop.jpg" }
 };
-const SAVE_KEY = 'blazingThunder_savedData_v3.4'; // Versie update
+const SAVE_KEY = 'blazingThunder_savedData_v3.4';
 
 const typeChart = { "Normal": {"Rock": 0.5, "Ghost": 0, "Steel": 0.5}, "Fire": {"Fire": 0.5, "Water": 0.5, "Grass": 2, "Ice": 2, "Bug": 2, "Rock": 0.5, "Dragon": 0.5, "Steel": 2}, "Water": {"Fire": 2, "Water": 0.5, "Grass": 0.5, "Ground": 2, "Rock": 2, "Dragon": 0.5}, "Electric": {"Water": 2, "Electric": 0.5, "Grass": 0.5, "Ground": 0, "Flying": 2, "Dragon": 0.5}, "Grass": {"Fire": 0.5, "Water": 2, "Grass": 0.5, "Poison": 0.5, "Ground": 2, "Flying": 0.5, "Bug": 0.5, "Rock": 2, "Dragon": 0.5, "Steel": 0.5}, "Ice": {"Fire": 0.5, "Water": 0.5, "Grass": 2, "Ice": 0.5, "Ground": 2, "Flying": 2, "Dragon": 2, "Steel": 0.5}, "Fighting": {"Normal": 2, "Ice": 2, "Poison": 0.5, "Flying": 0.5, "Psychic": 0.5, "Bug": 0.5, "Rock": 2, "Ghost": 0, "Dark": 2, "Steel": 2, "Fairy": 0.5}, "Poison": {"Grass": 2, "Poison": 0.5, "Ground": 0.5, "Rock": 0.5, "Ghost": 0.5, "Steel": 0, "Fairy": 2}, "Ground": {"Fire": 2, "Electric": 2, "Grass": 0.5, "Poison": 2, "Flying": 0, "Bug": 0.5, "Rock": 2, "Steel": 2}, "Flying": {"Electric": 0.5, "Grass": 2, "Fighting": 2, "Bug": 2, "Rock": 0.5, "Steel": 0.5}, "Psychic": {"Fighting": 2, "Poison": 2, "Psychic": 0.5, "Dark": 0, "Steel": 0.5}, "Bug": {"Fire": 0.5, "Grass": 2, "Fighting": 0.5, "Poison": 0.5, "Flying": 0.5, "Psychic": 2, "Ghost": 0.5, "Dark": 2, "Steel": 0.5, "Fairy": 0.5}, "Rock": {"Fire": 2, "Ice": 2, "Fighting": 0.5, "Ground": 0.5, "Flying": 2, "Bug": 2, "Steel": 0.5}, "Ghost": {"Normal": 0, "Psychic": 2, "Ghost": 2, "Dark": 0.5}, "Dragon": {"Dragon": 2, "Steel": 0.5, "Fairy": 0}, "Steel": {"Fire": 0.5, "Water": 0.5, "Electric": 0.5, "Ice": 2, "Rock": 2, "Steel": 0.5, "Fairy": 2}, "Dark": {"Fighting": 0.5, "Psychic": 2, "Ghost": 2, "Dark": 0.5, "Fairy": 0.5}, "Fairy": {"Fire": 0.5, "Fighting": 2, "Poison": 0.5, "Dragon": 2, "Dark": 2, "Steel": 0.5} };
 const statStageMultipliers = [1/4, 2/7, 1/3, 2/5, 1/2, 2/3, 1, 1.5, 2, 2.5, 3, 3.5, 4];
@@ -6321,8 +6318,8 @@ function generatePassword() {
             defeatedPokemonLeague: selectedTrainerData.defeatedPokemonLeague || false,
             teamRocketDefeatedCount: selectedTrainerData.teamRocketDefeatedCount || 0,
             defeatedAllTeamRocket: selectedTrainerData.defeatedAllTeamRocket || false,
-            isMenuMusicEnabled: isMenuMusicEnabled, // Nieuw
-            isBattleMusicEnabled: isBattleMusicEnabled // Nieuw
+            isMenuMusicEnabled: isMenuMusicEnabled,
+            isBattleMusicEnabled: isBattleMusicEnabled
         };
         const jsonString = JSON.stringify(exportData);
         const base64String = btoa(jsonString);
@@ -6482,23 +6479,17 @@ function calculateTypeEffectiveness(moveType, defenderTypes) { let totalEffectiv
 function getEffectivenessText(multiplier, defenderName) { if (multiplier >= 2) return "It's super effective!"; if (multiplier > 0 && multiplier < 1) return "It's not very effective..."; if (multiplier === 0) return `It doesn't affect foe ${defenderName.toUpperCase()}...`; return ""; }
 
 function switchScreen(screenKey) {
-    if (currentScreen === 'battle' && screenKey !== 'battle') {
+    // Muzieklogica bij schermwissel
+    if (screenKey === 'battle') {
+        stopIntroMusic();
+        // Battle muziek wordt gestart in de specifieke battle setup functies
+    } else if (screenKey === 'mainMenu' || screenKey === 'market' || screenKey === 'inventory' || screenKey === 'team' || screenKey === 'pcBox' || screenKey === 'myCards' || screenKey === 'tcgCards' || screenKey === 'password' || screenKey === 'adminMode' || screenKey === 'optionsMenu' || screenKey === 'playMenu' || screenKey === 'gymLeaderSelect' || screenKey === 'gymLeaderDetail' || screenKey === 'eliteFourSelect' || screenKey === 'eliteFourDetail' || screenKey === 'pokemonLeague' || screenKey === 'teamRocket') {
+        stopBattleMusic(); // Stop battle muziek als we naar een menu-achtig scherm gaan
+        startIntroMusic(); // Start (of continueer) intro muziek
+    } else { // Voor intro, characterSelect, starterSelect
+        stopIntroMusic();
         stopBattleMusic();
-        // Als we van battle naar een menu gaan, start intromuziek (behalve als het intro zelf is)
-        if (screenKey !== 'intro' && screenKey !== 'characterSelect' && screenKey !== 'starterSelect') {
-            startIntroMusic();
-        }
-    } else if (currentScreen !== 'battle' && screenKey === 'battle') {
-        stopIntroMusic(); // Battle muziek wordt gestart in battle setup
-    } else if (screenKey === 'mainMenu' && currentScreen !== 'mainMenu') {
-        startIntroMusic(); // Zorg dat intromuziek start als we naar main menu gaan
-    } else if (currentScreen === 'mainMenu' && screenKey !== 'mainMenu' && screenKey !== 'battle' && screenKey !== 'optionsMenu') {
-        // Als we van main menu naar een ander submenu gaan (market, inventory, etc.),
-        // hoeft de intromuziek niet te stoppen/herstarten, tenzij die al uit stond.
-        // StartIntroMusic() checkt al of het speelt.
-        startIntroMusic();
     }
-
 
     Object.keys(screens).forEach(key => {
         if (screens[key]) screens[key].style.display = 'none';
@@ -6577,8 +6568,8 @@ function updateBattleUI() {
     let playerTeamSizeForUI = 3;
     if (battleState.isEliteFourBattle || battleState.isPokemonLeagueBattle) {
         playerTeamSizeForUI = MAX_TEAM_SIZE;
-    } else if (battleState.isTeamRocketBattle) {
-        playerTeamSizeForUI = battleState.playerTeam.length; // Max 3
+    } else if (battleState.isTeamRocketBattle || battleState.isGymBattle) { // Gym ook max 3
+        playerTeamSizeForUI = Math.min(battleState.playerTeam.length, 3);
     }
     updateTeamStatus(playerTeamStatusEl, battleState.playerTeam, playerTeamSizeForUI);
 
@@ -6593,8 +6584,8 @@ function updateBattleUI() {
         let opponentTeamSizeForUI = 3;
         if (battleState.isEliteFourBattle || battleState.isPokemonLeagueBattle) {
             opponentTeamSizeForUI = MAX_TEAM_SIZE;
-        } else if (battleState.isTeamRocketBattle) {
-            opponentTeamSizeForUI = TEAM_ROCKET_POKEMON_COUNT;
+        } else if (battleState.isTeamRocketBattle || battleState.isGymBattle) { // Gym ook max 3
+            opponentTeamSizeForUI = battleState.opponentTeam.length > 3 ? 3 : battleState.opponentTeam.length; // Toon max 3, of minder als team kleiner is
         }
         updateTeamStatus(opponentTeamStatusEl, battleState.opponentTeam, opponentTeamSizeForUI);
     } else {
@@ -7057,12 +7048,16 @@ function getUniqueRandomPokemon(existingPokedexIds, fromPool, count) {
             tempAvailable = [...fullPoolMinusAlreadyChosenInThisSelection];
         }
         const randomIndex = Math.floor(Math.random() * tempAvailable.length);
-        chosen.push(tempAvailable.splice(randomIndex, 1)[0]);
+        if (tempAvailable[randomIndex]) { // Zorg ervoor dat we een geldig item hebben
+            chosen.push(tempAvailable.splice(randomIndex, 1)[0]);
+        } else if (fromPool.length > 0) { // Nood-fallback
+            chosen.push(fromPool[Math.floor(Math.random() * fromPool.length)]);
+        }
     }
     return chosen.filter(p => p);
 }
 
-
+// Aangepaste startQuickBattle
 function startQuickBattle() {
     battleState.isWildBattle = false;
     battleState.isGymBattle = false;
@@ -7071,26 +7066,23 @@ function startQuickBattle() {
     battleState.isTeamRocketBattle = false;
     screens.battle.style.backgroundImage = "url('https://pokemonrevolution.net/forum/uploads/monthly_2021_03/DVMT-6OXcAE2rZY.jpg.afab972f972bd7fbd4253bc7aa1cf27f.jpg')";
 
-    battleState.playerTeam = [];
-    battleState.opponentTeam = [];
-
     if (pokemonPool.length < 3) {
-        alert("Error: Not enough unique Pokémon in the pool for a Quick Battle.");
+        alert("Error: Not enough Pokémon in the pool for a Quick Battle.");
         switchScreen('mainMenu');
         return;
     }
 
-    const playerPokemonData = getUniqueRandomPokemon([], pokemonPool, 3);
-    if (playerPokemonData.length < 3) { /* Fallback or error */ }
-    battleState.playerTeam = playerPokemonData.map(data => createPokemonFromData(data, false, true));
+    // Genereer volledig willekeurig team voor speler
+    battleState.playerTeam = getUniqueRandomPokemon([], pokemonPool, 3)
+        .map(data => createPokemonFromData(data, false, true));
 
-    const opponentPokedexIdsToExclude = playerPokemonData.map(p => p.pokedexId);
-    const opponentPokemonData = getUniqueRandomPokemon(opponentPokedexIdsToExclude, pokemonPool, 3);
-    if (opponentPokemonData.length < 3) { /* Fallback or error */ }
-    battleState.opponentTeam = opponentPokemonData.map(data => createPokemonFromData(data, true, false));
+    // Genereer volledig willekeurig team voor tegenstander (zorg dat ze anders zijn dan speler indien mogelijk)
+    const playerPokedexIds = battleState.playerTeam.map(p => p.pokedexId);
+    battleState.opponentTeam = getUniqueRandomPokemon(playerPokedexIds, pokemonPool, 3)
+        .map(data => createPokemonFromData(data, true, false));
 
-    if (battleState.playerTeam.length === 0 || battleState.opponentTeam.length === 0) {
-        alert("Error: Could not set up teams for Quick Battle. Pokemon pool might be too small or empty.");
+    if (battleState.playerTeam.length < 3 || battleState.opponentTeam.length < 3) {
+        alert("Error: Could not set up teams for Quick Battle. Pokemon pool might be too small.");
         switchScreen('mainMenu');
         return;
     }
@@ -7106,9 +7098,10 @@ function startQuickBattle() {
     typeMessage(introMsg, () => {
         battleState.onMessageComplete = () => {
             typeMessage(`Go ${battleState.playerTeam[0].name.toUpperCase()}!`, startTurnPhase);
-        }
+        };
     });
 }
+
 
 function prepareBattle(battleFunction, isEliteFour = false, isLeague = false, isTeamRocket = false) {
     if (!selectedTrainerData || !selectedTrainerData.team || selectedTrainerData.team.length === 0) {
@@ -7154,8 +7147,8 @@ function prepareBattle(battleFunction, isEliteFour = false, isLeague = false, is
     } else if (battleFunction === startGymBattleActual) {
         requiredTeamSize = 1;
         maxSelectable = 3;
-    } else if (battleFunction === startQuickBattle || battleFunction === startWildBattleActual) {
-         requiredTeamSize = battleFunction === startQuickBattle ? 3 : 1;
+    } else if (battleFunction === startWildBattleActual) { // Quick Battle gebruikt deze niet meer
+         requiredTeamSize = 1;
          maxSelectable = 3;
     }
 
@@ -7166,18 +7159,17 @@ function prepareBattle(battleFunction, isEliteFour = false, isLeague = false, is
         return;
     }
 
-    // Bepaal of teamselectie nodig is.
-    // Voor Gym, E4, League, TR: altijd als team > maxSelectable OF als het de bedoeling is (bv. E4/League = altijd 6)
-    // Voor Wild/Quick: alleen als team > maxSelectable (3)
     let shouldShowTeamSelect = false;
     if (isEliteFour || isLeague) {
-        shouldShowTeamSelect = true; // Altijd team selectie voor 6
+        shouldShowTeamSelect = true;
     } else if (isTeamRocket) {
-        shouldShowTeamSelect = true; // Altijd team selectie voor max 3
+        shouldShowTeamSelect = true;
     } else if (battleFunction === startGymBattleActual) {
-        shouldShowTeamSelect = healthyPokemonCount > maxSelectable || healthyPokemonCount < 1; // Selectie als > 3, of < 1 (wat al afgevangen is)
-        if(healthyPokemonCount <= maxSelectable && healthyPokemonCount >= 1) shouldShowTeamSelect = false; // Gebruik team als 1-3
-    } else if ((battleFunction === startQuickBattle || battleFunction === startWildBattleActual) && healthyPokemonCount > maxSelectable) {
+        // Toon team selectie voor gym als je meer dan `maxSelectable` (3) gezonde Pokémon hebt,
+        // of als je minder dan `requiredTeamSize` (1) hebt (wat al afgevangen is).
+        // Anders, gebruik het team direct (1 tot 3 Pokémon).
+        shouldShowTeamSelect = healthyPokemonCount > maxSelectable;
+    } else if (battleFunction === startWildBattleActual && healthyPokemonCount > maxSelectable) {
         shouldShowTeamSelect = true;
     }
 
@@ -7208,12 +7200,12 @@ function showTeamSelectScreen(numToSelect) {
     teamSelectConfirmButton.disabled = true;
 
     if (teamSelectTitleEl) {
-        teamSelectTitleEl.textContent = `SELECT YOUR BATTLE TEAM (CHOOSE ${numToSelect})`;
-         if (battleState.isTeamRocketBattle || battleState.isGymBattle) { // Voor Gym & TR: "UP TO"
+        if (battleState.isTeamRocketBattle || battleState.isGymBattle) {
             teamSelectTitleEl.textContent = `SELECT YOUR TEAM (UP TO ${numToSelect})`;
+        } else {
+            teamSelectTitleEl.textContent = `SELECT YOUR BATTLE TEAM (CHOOSE ${numToSelect})`;
         }
     }
-
 
     selectedTrainerData.team.forEach((pokemon, index) => {
         if (!pokemon) return;
@@ -7242,48 +7234,41 @@ function showTeamSelectScreen(numToSelect) {
 }
 
 teamSelectConfirmButton.addEventListener('click', () => {
-    let numRequired;
+    let maxAllowed;
     let minRequired = 1;
 
     if (battleState.isEliteFourBattle || battleState.isPokemonLeagueBattle) {
-        numRequired = MAX_TEAM_SIZE;
+        maxAllowed = MAX_TEAM_SIZE;
         minRequired = MAX_TEAM_SIZE;
-    } else if (battleState.isTeamRocketBattle || battleState.isGymBattle) { // Gym en TR hebben dezelfde selectie logica
-        numRequired = battleState.isTeamRocketBattle ? TEAM_ROCKET_POKEMON_COUNT : 3;
+    } else if (battleState.isTeamRocketBattle) {
+        maxAllowed = TEAM_ROCKET_POKEMON_COUNT;
         minRequired = 1;
-        if (battleState.selectedBattleTeamIndexes.length === 0 && selectedTrainerData.team.filter(p => p && p.currentHP > 0).length > 0) {
-            alert(`Please select at least one Pokémon.`);
-            return;
-        }
-        if (battleState.selectedBattleTeamIndexes.length > numRequired) {
-             alert(`You can select a maximum of ${numRequired} Pokémon.`);
-            return;
-        }
-        // Voor Gym/TR is het aantal geselecteerde pokemons flexibel tot numRequired (max 3)
-    } else { // Quick, Wild (als selectie getoond wordt)
-        numRequired = 3;
-        minRequired = battleState.pendingBattleStartFunction === startQuickBattle ? 3 : 1;
+    } else if (battleState.isGymBattle) {
+        maxAllowed = 3;
+        minRequired = 1;
+    } else { // Quick, Wild (indien selectie getoond)
+        maxAllowed = 3;
+        minRequired = battleState.pendingBattleStartFunction === startQuickBattle ? 3 : 1; // Quick battle vereist 3
     }
 
-
-    if (battleState.isTeamRocketBattle || battleState.isGymBattle) {
-        if (battleState.selectedBattleTeamIndexes.length < minRequired && selectedTrainerData.team.filter(p => p && p.currentHP > 0).length >= minRequired) {
-             alert(`Please select at least ${minRequired} Pokémon.`);
-             return;
-        }
-         battleState.playerTeam = battleState.selectedBattleTeamIndexes.map(index => {
-            return JSON.parse(JSON.stringify(selectedTrainerData.team[index]));
-        });
-    } else {
-        if (battleState.selectedBattleTeamIndexes.length !== numRequired) {
-            alert(`Please select exactly ${numRequired} Pokémon.`);
-            return;
-        }
-        battleState.playerTeam = battleState.selectedBattleTeamIndexes.map(index => {
-            return JSON.parse(JSON.stringify(selectedTrainerData.team[index]));
-        });
+    if (battleState.selectedBattleTeamIndexes.length < minRequired) {
+        alert(`Please select at least ${minRequired} Pokémon.`);
+        return;
+    }
+    // Voor E4 en League MOET het exacte aantal zijn
+    if ((battleState.isEliteFourBattle || battleState.isPokemonLeagueBattle) && battleState.selectedBattleTeamIndexes.length !== maxAllowed) {
+         alert(`Please select exactly ${maxAllowed} Pokémon.`);
+        return;
+    }
+    // Voor andere modi (Gym, TR, Quick/Wild met selectie) mag het minder zijn dan maxAllowed, maar niet meer.
+    if (battleState.selectedBattleTeamIndexes.length > maxAllowed) {
+         alert(`You can select a maximum of ${maxAllowed} Pokémon.`);
+        return;
     }
 
+    battleState.playerTeam = battleState.selectedBattleTeamIndexes.map(index => {
+        return JSON.parse(JSON.stringify(selectedTrainerData.team[index]));
+    });
 
     if (battleState.pendingBattleStartFunction) {
         battleState.pendingBattleStartFunction();
@@ -8344,11 +8329,11 @@ function showStarterSelectScreen() {
 
 function saveGame() {
     if (selectedTrainerData) {
-        selectedTrainerData.isMenuMusicEnabled = isMenuMusicEnabled; // Sla menu muziek voorkeur op
-        selectedTrainerData.isBattleMusicEnabled = isBattleMusicEnabled; // Sla battle muziek voorkeur op
+        selectedTrainerData.isMenuMusicEnabled = isMenuMusicEnabled;
+        selectedTrainerData.isBattleMusicEnabled = isBattleMusicEnabled;
         localStorage.setItem(SAVE_KEY, JSON.stringify(selectedTrainerData));
         console.log("Game Saved!");
-        if (currentScreen === 'optionsMenu') {
+        if (currentScreen === 'optionsMenu' || currentScreen === 'adminMode') { // Ook na admin actie
             alert("Game progress has been saved!");
         }
     } else {
@@ -8416,7 +8401,8 @@ function loadGame() {
 function performResetGame() {
     localStorage.removeItem(SAVE_KEY);
     localStorage.removeItem('blazingThunder_darkMode');
-    // Verwijder individuele muziekvoorkeuren, ze worden in selectedTrainerData opgeslagen
+    localStorage.removeItem('blazingThunder_menuMusicEnabled'); // Verwijder oude key als die bestaat
+    localStorage.removeItem('blazingThunder_battleMusicEnabled'); // Verwijder oude key als die bestaat
     selectedTrainerData = null;
     tempSelectedStarter = null;
     isNewGameSetup = false;
@@ -8429,7 +8415,7 @@ function performResetGame() {
     battleState.currentLeagueOpponentIndex = 0;
     battleState.leagueBattlesWon = 0;
     battleState.currentTeamRocketGruntIndex = 0;
-    isMenuMusicEnabled = true; // Reset muziek naar aan
+    isMenuMusicEnabled = true;
     isBattleMusicEnabled = true;
     btnToggleMenuMusicOpt.textContent = "MENU MUSIC: ON";
     btnToggleBattleMusicOpt.textContent = "BATTLE MUSIC: ON";
@@ -8448,14 +8434,19 @@ function showAdminModeScreen() {
 }
 
 function submitAdminPassword() {
+    if (!selectedTrainerData) {
+        adminMessageEl.textContent = "No trainer data loaded.";
+        adminMessageEl.style.color = "red";
+        return;
+    }
     if (adminPasswordInput.value === ADMIN_PASSWORD) {
         selectedTrainerData.coins = (selectedTrainerData.coins || 0) + 1000;
         selectedTrainerData.inventory["Ultra Ball"] = (selectedTrainerData.inventory["Ultra Ball"] || 0) + 100;
         updateCoinDisplay();
-        saveGame();
+        saveGame(); // Sla op na het toekennen van rewards
         adminMessageEl.textContent = "Admin rewards granted! 1000 Coins and 100 Ultra Balls added.";
         adminMessageEl.style.color = "lime";
-        adminPasswordInput.value = ''; // Leeg het veld na succes
+        adminPasswordInput.value = '';
     } else {
         adminMessageEl.textContent = "Incorrect password.";
         adminMessageEl.style.color = "red";
@@ -8525,7 +8516,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         if(btnPlay) btnPlay.addEventListener('click', () => switchScreen('playMenu'));
-        if(btnQuickBattlePlay) btnQuickBattlePlay.addEventListener('click', () => prepareBattle(startQuickBattle, false, false, false));
+        if(btnQuickBattlePlay) btnQuickBattlePlay.addEventListener('click', startQuickBattle); // Direct aanroepen
         if(btnWildModePlay) btnWildModePlay.addEventListener('click', () => prepareBattle(startWildBattleActual, false, false, false));
         if(btnGymBattlePlay) btnGymBattlePlay.addEventListener('click', showGymLeaderSelectScreen);
         if(btnEliteBattlesPlay) btnEliteBattlesPlay.addEventListener('click', showEliteFourSelectScreen);
@@ -8568,7 +8559,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(btnBackToMainOpts) btnBackToMainOpts.addEventListener('click', () => switchScreen('mainMenu'));
         if(resetConfirmNoButton) resetConfirmNoButton.addEventListener('click', () => {screens.resetConfirmDialog.style.display = 'none'; switchScreen('optionsMenu');});
 
-        // Admin Mode Screen Buttons
         if(btnSubmitAdminPassword) btnSubmitAdminPassword.addEventListener('click', submitAdminPassword);
         if(btnBackToOptionsFromAdmin) btnBackToOptionsFromAdmin.addEventListener('click', () => switchScreen('optionsMenu'));
 
@@ -8657,7 +8647,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     case 'pokemon': showSwitchScreen(false); break;
                     case 'run':
                         if (battleState.isWildBattle) {
-                            stopBattleMusic(); stopIntroMusic();
+                            stopBattleMusic();
                             typeMessage("Got away safely!", () => {
                                 finalizeBattleState();
                                 battleState.isWildBattle = false;
@@ -8667,8 +8657,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             });
                         } else if (battleState.isGymBattle || battleState.isEliteFourBattle || battleState.isPokemonLeagueBattle || battleState.isTeamRocketBattle) {
                              typeMessage("You can't run from this important battle!", playerActionPhase);
-                        } else {
-                            stopBattleMusic(); stopIntroMusic();
+                        } else { // Quick Battle
+                            stopBattleMusic();
                             typeMessage("You chose to forfeit the Quick Battle.", () => {
                                 finalizeBattleState();
                                 selectedTrainerData.coins = Math.max(0, (selectedTrainerData.coins || 0) - 2);
@@ -8756,11 +8746,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setupEvtLstnrs();
-    const menuMusicPref = localStorage.getItem('blazingThunder_menuMusicEnabled');
-    const battleMusicPref = localStorage.getItem('blazingThunder_battleMusicEnabled');
+    const menuMusicSaved = localStorage.getItem('blazingThunder_menuMusicEnabled');
+    const battleMusicSaved = localStorage.getItem('blazingThunder_battleMusicEnabled');
 
-    isMenuMusicEnabled = menuMusicPref !== null ? JSON.parse(menuMusicPref) : true;
-    isBattleMusicEnabled = battleMusicPref !== null ? JSON.parse(battleMusicPref) : true;
+    isMenuMusicEnabled = menuMusicSaved !== null ? JSON.parse(menuMusicSaved) : true;
+    isBattleMusicEnabled = battleMusicSaved !== null ? JSON.parse(battleMusicSaved) : true;
 
     btnToggleMenuMusicOpt.textContent = `MENU MUSIC: ${isMenuMusicEnabled ? 'ON' : 'OFF'}`;
     btnToggleBattleMusicOpt.textContent = `BATTLE MUSIC: ${isBattleMusicEnabled ? 'ON' : 'OFF'}`;
