@@ -576,6 +576,10 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 #teamSelectScreen .team-select-button:disabled {
     background-color: #7f8c8d; border-color: #6c7a7b; cursor: not-allowed; opacity: 0.7;
 }
+#teamSelectScreen .team-select-button.cancel {
+    background-color: #e74c3c; border-color: #c0392b;
+}
+
 
 #marketCoinDisplay { font-size: clamp(1em, 3.5vmin, 1.3em); margin-bottom: 3vmin; padding: 1vmin 2vmin; background-color: rgba(0,0,0,0.3); border-radius: 5px; }
 .market-items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 35vw, 220px), 1fr)); gap: 3vmin; width: 100%; max-width: 700px; }
@@ -915,12 +919,16 @@ body.dark-mode .game-container { border-color: #555; box-shadow: 0 0 15px rgba(1
 .switch-info .name, .team-select-info .name { font-size: 1.1em; margin-bottom: 5px; display: block; }
 .switch-info .hp-bar-container, .team-select-info .hp-bar-container { height: clamp(8px, 1.5vmin, 10px); margin-bottom: 3px; }
 .switch-info .hp-numbers, .team-select-info .hp-numbers { font-size: 0.9em; text-align: left;}
-#switchCancelButton, #teamSelectConfirmButton {
+#switchCancelButton, #teamSelectConfirmButton, #teamSelectCancelButton { /* Aangepast */
     font-family: 'Pokemon Pixel', sans-serif;
     margin-top: 25px; font-size: clamp(1em, 3.8vmin, 1.3em); padding: 12px 25px; border: 2px solid #c0392b; background-color: #e74c3c; color: #FFF; cursor: pointer; border-radius: 8px; transition: background-color 0.2s, border-color 0.2s, transform 0.1s; }
-#switchCancelButton:hover, #teamSelectConfirmButton:hover:not(:disabled) { background-color: #c0392b; border-color: #a03020; transform: translateY(-1px); }
+#switchCancelButton:hover, #teamSelectConfirmButton:hover:not(:disabled), #teamSelectCancelButton:hover { /* Aangepast */
+    background-color: #c0392b; border-color: #a03020; transform: translateY(-1px); }
 #teamSelectConfirmButton { background-color: #28a745; border-color: #1e7e34; }
 #teamSelectConfirmButton:disabled { background-color: #7f8c8d; border-color: #6c7a7b; cursor: not-allowed; opacity: 0.7; }
+#teamSelectCancelButton { background-color: #e74c3c; border-color: #c0392b; } /* Toegevoegd */
+#teamSelectCancelButton:hover { background-color: #c0392b; border-color: #a03020; } /* Toegevoegd */
+
 
 .pokeball-throw-animation { position: absolute; width: clamp(20px, 5vmin, 30px); height: clamp(20px, 5vmin, 30px); background-image: var(--item-icon-pokeball); background-size: contain; background-repeat: no-repeat; z-index: 100; animation: throwAndWiggle 3.5s forwards; transform-origin: center bottom; }
 @keyframes throwAndWiggle { 0% { transform: translate(0,0) scale(1) rotate(0deg); opacity: 1;} 15% { transform: translate(calc(var(--target-x) / 2), calc(var(--target-y) / 2 - 50px)) scale(1.2) rotate(-180deg); opacity: 1;} 30% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-360deg); opacity: 1;} 32% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-360deg); opacity: 1;} 40% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-375deg); opacity: 1;} 50% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-345deg); opacity: 1;} 60% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-370deg); opacity: 1;} 70% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-350deg); opacity: 1;} 80% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-365deg); opacity: 1;} 90% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-355deg); opacity: 1;} 95% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-360deg); opacity: 1;} 100% { transform: translate(var(--target-x), var(--target-y)) scale(1.5) rotate(-360deg); opacity: 1;} }
