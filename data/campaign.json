@@ -1,0 +1,531 @@
+[
+  {
+    "id": "c1",
+    "act": 1,
+    "actName": "Act 1 — Basic Fighters",
+    "difficulty": "Easy",
+    "title": "First Blood",
+    "arena": "colosseum",
+    "size": 1,
+    "enemy": [
+      "viking_berserker"
+    ],
+    "reward": "viking_berserker",
+    "desc": "Defeat the first berserker and unlock the Viking Berserker.",
+    "rewardCoins": 75,
+    "rewardRank": 25
+  },
+  {
+    "id": "c2",
+    "act": 1,
+    "actName": "Act 1 — Basic Fighters",
+    "difficulty": "Easy",
+    "title": "Steppe Arrow",
+    "arena": "colosseum",
+    "size": 2,
+    "enemy": [
+      "mongol_archer",
+      "viking_berserker"
+    ],
+    "reward": "mongol_archer",
+    "desc": "Learn ranged pressure against the Mongol Archer.",
+    "rewardCoins": 75,
+    "rewardRank": 25
+  },
+  {
+    "id": "c3",
+    "act": 1,
+    "actName": "Act 1 — Basic Fighters",
+    "difficulty": "Easy",
+    "title": "Roman Discipline",
+    "arena": "colosseum",
+    "size": 2,
+    "enemy": [
+      "roman_centurion",
+      "mongol_archer"
+    ],
+    "reward": "roman_centurion",
+    "desc": "Break the Roman line and unlock the Roman Centurion.",
+    "rewardCoins": 75,
+    "rewardRank": 25
+  },
+  {
+    "id": "c4",
+    "act": 1,
+    "actName": "Act 1 — Basic Fighters",
+    "difficulty": "Easy",
+    "title": "Banner of Faith",
+    "arena": "colosseum",
+    "size": 2,
+    "enemy": [
+      "joan",
+      "roman_centurion"
+    ],
+    "reward": "joan",
+    "desc": "Face your first support commander and unlock Joan of Arc.",
+    "rewardCoins": 75,
+    "rewardRank": 25
+  },
+  {
+    "id": "c5",
+    "act": 2,
+    "actName": "Act 2 — Strong Warriors",
+    "difficulty": "Normal",
+    "title": "Valkyrie's Trial",
+    "arena": "frozen_fjord",
+    "size": 3,
+    "enemy": [
+      "valkyrie",
+      "joan",
+      "viking_berserker"
+    ],
+    "reward": "valkyrie",
+    "desc": "A stronger fighter enters the arena.",
+    "rewardCoins": 110,
+    "rewardRank": 40
+  },
+  {
+    "id": "c6",
+    "act": 2,
+    "actName": "Act 2 — Strong Warriors",
+    "difficulty": "Normal",
+    "title": "The Samurai Gate",
+    "arena": "samurai_shrine",
+    "size": 3,
+    "enemy": [
+      "musashi",
+      "roman_centurion",
+      "mongol_archer"
+    ],
+    "reward": "musashi",
+    "desc": "Defeat the two-sword ronin master.",
+    "rewardCoins": 110,
+    "rewardRank": 40
+  },
+  {
+    "id": "c7",
+    "act": 2,
+    "actName": "Act 2 — Strong Warriors",
+    "difficulty": "Normal",
+    "title": "Wrath of Achilles",
+    "arena": "colosseum",
+    "size": 3,
+    "enemy": [
+      "achilles",
+      "valkyrie",
+      "roman_centurion"
+    ],
+    "reward": "achilles",
+    "desc": "Survive Achilles and unlock his heroic duelist style.",
+    "rewardCoins": 110,
+    "rewardRank": 40
+  },
+  {
+    "id": "c7a",
+    "act": 2,
+    "actName": "Act 2 — Strong Warriors",
+    "title": "Labyrinth Gladiator",
+    "arena": "colosseum",
+    "desc": "A brutal horned gladiator enters the arena. Beat him to unlock the Minotaur Gladiator, or buy him in the Shop for 1500 coins.",
+    "difficulty": "Hard",
+    "size": 3,
+    "enemy": [
+      "minotaur_gladiator",
+      "roman_centurion",
+      "viking_berserker"
+    ],
+    "reward": "minotaur_gladiator",
+    "rewardCoins": 125,
+    "rewardRank": 42
+  },
+  {
+    "id": "c8",
+    "act": 2,
+    "actName": "Act 2 — Strong Warriors",
+    "difficulty": "Normal",
+    "title": "The Leper King",
+    "arena": "desert_arena",
+    "size": 3,
+    "enemy": [
+      "baldwin_iv",
+      "joan",
+      "roman_centurion"
+    ],
+    "reward": "baldwin_iv",
+    "desc": "Face Baldwin IV and his holy command.",
+    "rewardCoins": 110,
+    "rewardRank": 40
+  },
+  {
+    "id": "c9",
+    "act": 2,
+    "actName": "Act 2 — Strong Warriors",
+    "difficulty": "Normal",
+    "title": "The Frisian Giant",
+    "arena": "colosseum",
+    "size": 4,
+    "enemy": [
+      "grutte_pier",
+      "viking_berserker",
+      "roman_centurion",
+      "mongol_archer"
+    ],
+    "reward": "grutte_pier",
+    "desc": "A heavy powerhouse joins the progression.",
+    "rewardCoins": 110,
+    "rewardRank": 40
+  },
+  {
+    "id": "c10",
+    "act": 2,
+    "actName": "Act 2 — Strong Warriors",
+    "difficulty": "Normal",
+    "title": "The Emperor's Gambit",
+    "arena": "colosseum",
+    "size": 4,
+    "enemy": [
+      "napoleon",
+      "roman_centurion",
+      "joan",
+      "mongol_archer"
+    ],
+    "reward": "napoleon",
+    "desc": "Defeat the tactical emperor.",
+    "rewardCoins": 110,
+    "rewardRank": 40
+  },
+  {
+    "id": "c11",
+    "act": 3,
+    "actName": "Act 3 — Status Effects",
+    "difficulty": "Hard",
+    "title": "Prince of Terror",
+    "arena": "underworld_gate",
+    "size": 4,
+    "enemy": [
+      "vlad",
+      "plague_doctor",
+      "ronin",
+      "roman_centurion"
+    ],
+    "reward": "vlad",
+    "desc": "Fear and bleed pressure begin here.",
+    "rewardCoins": 150,
+    "rewardRank": 55
+  },
+  {
+    "id": "c12",
+    "act": 3,
+    "actName": "Act 3 — Status Effects",
+    "difficulty": "Hard",
+    "title": "The Plague Court",
+    "arena": "underworld_gate",
+    "size": 4,
+    "enemy": [
+      "plague_doctor",
+      "vlad",
+      "joan",
+      "mongol_archer"
+    ],
+    "reward": "plague_doctor",
+    "desc": "Learn to handle poison and vulnerable debuffs.",
+    "rewardCoins": 150,
+    "rewardRank": 55
+  },
+  {
+    "id": "c13",
+    "act": 3,
+    "actName": "Act 3 — Status Effects",
+    "difficulty": "Hard",
+    "title": "The Masterless Blade",
+    "arena": "samurai_shrine",
+    "size": 4,
+    "enemy": [
+      "ronin",
+      "musashi",
+      "vlad",
+      "mongol_archer"
+    ],
+    "reward": "ronin",
+    "desc": "Fight speed, bleed and fear pressure.",
+    "rewardCoins": 150,
+    "rewardRank": 55
+  },
+  {
+    "id": "c14",
+    "act": 3,
+    "actName": "Act 3 — Status Effects",
+    "difficulty": "Hard",
+    "title": "Underground Riot",
+    "arena": "underworld_gate",
+    "size": 4,
+    "enemy": [
+      "the_hooligan",
+      "ronin",
+      "viking_berserker",
+      "vlad"
+    ],
+    "reward": "the_hooligan",
+    "desc": "A brutal control fighter enters.",
+    "rewardCoins": 150,
+    "rewardRank": 55
+  },
+  {
+    "id": "c15",
+    "act": 3,
+    "actName": "Act 3 — Status Effects",
+    "difficulty": "Hard",
+    "title": "Operation 007",
+    "arena": "colosseum",
+    "size": 4,
+    "enemy": [
+      "james_bond",
+      "ronin",
+      "plague_doctor",
+      "mongol_archer"
+    ],
+    "reward": "james_bond",
+    "desc": "Long range precision and control.",
+    "rewardCoins": 150,
+    "rewardRank": 55
+  },
+  {
+    "id": "c15a",
+    "act": 3,
+    "actName": "Act 3 — Status Effects",
+    "difficulty": "Hard",
+    "title": "The Unkillable Soldier",
+    "arena": "colosseum",
+    "size": 4,
+    "enemy": [
+      "adrian_carton_de_wiart",
+      "james_bond",
+      "the_hooligan",
+      "roman_centurion"
+    ],
+    "reward": "adrian_carton_de_wiart",
+    "desc": "Face Adrian Carton de Wiart in the same act as James Bond and unlock the unkillable officer.",
+    "rewardCoins": 175,
+    "rewardRank": 60
+  },
+  {
+    "id": "c15b",
+    "act": 3,
+    "actName": "Act 3 — Status Effects",
+    "difficulty": "Hard",
+    "title": "The Alien of the Paint",
+    "arena": "colosseum",
+    "size": 5,
+    "enemy": [
+      "victor_wembanyama",
+      "james_bond",
+      "amelia_earhart",
+      "the_hooligan",
+      "battle_priest"
+    ],
+    "reward": "victor_wembanyama",
+    "desc": "Face Victor Wembanyama in his own chapter. He moves over the whole field, dunks from range, evades with dribbling, recovers, and locks movement with a flaming basketball.",
+    "rewardCoins": 175,
+    "rewardRank": 60
+  },
+  {
+    "id": "c16",
+    "act": 4,
+    "actName": "Act 4 — Healers / Commanders / Summons",
+    "difficulty": "Elite",
+    "title": "The Sacred Battlefield",
+    "arena": "colosseum",
+    "size": 5,
+    "enemy": [
+      "battle_priest",
+      "joan",
+      "baldwin_iv",
+      "roman_centurion",
+      "mongol_archer"
+    ],
+    "reward": "battle_priest",
+    "desc": "Stronger healing and team sustain starts here.",
+    "rewardCoins": 190,
+    "rewardRank": 70
+  },
+  {
+    "id": "c17",
+    "act": 4,
+    "actName": "Act 4 — Healers / Commanders / Summons",
+    "difficulty": "Elite",
+    "title": "The Vatican Trial",
+    "arena": "colosseum",
+    "size": 5,
+    "enemy": [
+      "the_pope",
+      "battle_priest",
+      "joan",
+      "baldwin_iv",
+      "roman_centurion"
+    ],
+    "reward": "the_pope",
+    "desc": "Face full sustain and holy protection.",
+    "rewardCoins": 190,
+    "rewardRank": 70
+  },
+  {
+    "id": "c17b",
+    "act": 4,
+    "actName": "Act 4 — Healers / Commanders / Summons",
+    "difficulty": "Hard",
+    "title": "The Crimson Saint",
+    "arena": "underworld_gate",
+    "size": 5,
+    "enemy": [
+      "dark_sinterklaas",
+      "the_pope",
+      "battle_priest",
+      "the_hooligan",
+      "plague_doctor"
+    ],
+    "reward": "dark_sinterklaas",
+    "desc": "A dark holiday summoner enters the arena. Survive his healing, fear magic and three Shadow Pieten.",
+    "rewardCoins": 210,
+    "rewardRank": 80
+  },
+  {
+    "id": "c18",
+    "act": 4,
+    "actName": "Act 4 — Healers / Commanders / Summons",
+    "difficulty": "Elite",
+    "title": "The Sword in the Stone",
+    "arena": "colosseum",
+    "size": 5,
+    "enemy": [
+      "king_arthur",
+      "baldwin_iv",
+      "joan",
+      "roman_centurion",
+      "valkyrie"
+    ],
+    "reward": "king_arthur",
+    "desc": "Defeat the holy tank commander.",
+    "rewardCoins": 190,
+    "rewardRank": 70
+  },
+  {
+    "id": "c19",
+    "act": 4,
+    "actName": "Act 4 — Healers / Commanders / Summons",
+    "difficulty": "Elite",
+    "title": "Queen of the Nile",
+    "arena": "desert_arena",
+    "size": 5,
+    "enemy": [
+      "cleopatra",
+      "anubis_warrior",
+      "battle_priest",
+      "roman_centurion",
+      "mongol_archer"
+    ],
+    "reward": "cleopatra",
+    "desc": "Survive Cleopatra and her Sphinx pressure.",
+    "rewardCoins": 190,
+    "rewardRank": 70
+  },
+  {
+    "id": "c20",
+    "act": 4,
+    "actName": "Act 4 — Healers / Commanders / Summons",
+    "difficulty": "Elite",
+    "title": "Pride of the Savanna",
+    "arena": "desert_arena",
+    "size": 5,
+    "enemy": [
+      "african_tribe_warrior",
+      "cleopatra",
+      "anubis_warrior",
+      "attila_the_hun",
+      "mongol_archer"
+    ],
+    "reward": "african_tribe_warrior",
+    "desc": "Fight the Lion King summon and unlock the Savanna warrior.",
+    "rewardCoins": 190,
+    "rewardRank": 70
+  },
+  {
+    "id": "c21",
+    "act": 4,
+    "actName": "Act 4 — Healers / Commanders / Summons",
+    "difficulty": "Elite",
+    "title": "Queen of the Wild Hunt",
+    "arena": "desert_arena",
+    "size": 5,
+    "enemy": [
+      "the_amazon_girl",
+      "african_tribe_warrior",
+      "mongol_archer",
+      "viking_berserker",
+      "ronin"
+    ],
+    "reward": "the_amazon_girl",
+    "desc": "Speed, mark and bleed pressure in a full team fight.",
+    "rewardCoins": 190,
+    "rewardRank": 70
+  },
+  {
+    "id": "c22",
+    "act": 5,
+    "actName": "Act 5 — Endgame",
+    "difficulty": "Endgame",
+    "title": "Scourge of the Steppe",
+    "arena": "colosseum",
+    "size": 5,
+    "enemy": [
+      "attila_the_hun",
+      "grutte_pier",
+      "napoleon",
+      "mongol_archer",
+      "viking_berserker"
+    ],
+    "reward": "attila_the_hun",
+    "desc": "Endgame commander pressure begins.",
+    "rewardCoins": 240,
+    "rewardRank": 90
+  },
+  {
+    "id": "c23",
+    "act": 5,
+    "actName": "Act 5 — Endgame",
+    "difficulty": "Endgame",
+    "title": "Judgement of Anubis",
+    "arena": "underworld_gate",
+    "size": 5,
+    "enemy": [
+      "anubis_warrior",
+      "cleopatra",
+      "plague_doctor",
+      "vlad",
+      "battle_priest"
+    ],
+    "reward": "anubis_warrior",
+    "desc": "A mythic control battle before the finale.",
+    "rewardCoins": 240,
+    "rewardRank": 90
+  },
+  {
+    "id": "c24",
+    "act": 5,
+    "actName": "Act 5 — Endgame",
+    "difficulty": "Endgame",
+    "title": "The Infernal Throne",
+    "arena": "underworld_gate",
+    "size": 5,
+    "enemy": [
+      "lucifer_demon_king",
+      "vlad",
+      "plague_doctor",
+      "the_pope",
+      "battle_priest"
+    ],
+    "reward": "lucifer_demon_king",
+    "desc": "Final campaign chapter. Defeat Lucifer the Demon King.",
+    "rewardCoins": 240,
+    "rewardRank": 90
+  }
+]

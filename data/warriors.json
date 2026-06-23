@@ -1,0 +1,1154 @@
+[
+  {
+    "id": "leonidas",
+    "name": "Leonidas",
+    "title": "King of Sparta",
+    "faction": "Sparta",
+    "role": "Tank Commander",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/leonidas.png",
+    "unlock": "start",
+    "stats": {
+      "hp": 1450,
+      "attack": 86,
+      "defense": 124,
+      "speed": 45,
+      "crit": 5,
+      "resistance": 22,
+      "morale": 92
+    },
+    "passive": {
+      "name": "Spartan King",
+      "description": "When an ally drops below 35% HP, Leonidas gains Guard and +15 defense for 1 turn."
+    },
+    "moves": [
+      "spear_thrust",
+      "shield_wall",
+      "hold_the_line",
+      "thermopylae_stand",
+      "this_is_sparta"
+    ],
+    "specialMove": "this_is_sparta",
+    "superSprite": "assets/sprites/leonidas_super.png",
+    "spriteFacing": "left",
+    "superSpriteFacing": "left"
+  },
+  {
+    "id": "musashi",
+    "name": "Miyamoto Musashi",
+    "title": "Two-Sword Ronin",
+    "faction": "Samurai",
+    "role": "Duelist",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/musashi.png",
+    "unlock": "campaign_6",
+    "stats": {
+      "hp": 980,
+      "attack": 124,
+      "defense": 62,
+      "speed": 91,
+      "crit": 18,
+      "resistance": 12,
+      "morale": 78
+    },
+    "passive": {
+      "name": "Empty Mind",
+      "description": "+10% crit against isolated or marked targets."
+    },
+    "moves": [
+      "katana_slash",
+      "two_sword_cut",
+      "empty_mind",
+      "book_of_five_rings"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "vlad",
+    "name": "Vlad the Impaler",
+    "title": "Prince of Terror",
+    "faction": "Wallachia",
+    "role": "Fear Control",
+    "rarity": "Epic",
+    "cost": 3,
+    "sprite": "assets/sprites/vlad.png",
+    "unlock": "campaign_11",
+    "stats": {
+      "hp": 1120,
+      "attack": 101,
+      "defense": 78,
+      "speed": 67,
+      "crit": 11,
+      "resistance": 18,
+      "morale": 84
+    },
+    "passive": {
+      "name": "Dread Lord",
+      "description": "Enemies damaged by Vlad lose 6 morale."
+    },
+    "moves": [
+      "impaling_strike",
+      "terror_aura",
+      "cruel_example",
+      "forest_of_stakes"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "joan",
+    "name": "Joan of Arc",
+    "title": "Saint of the Banner",
+    "faction": "France",
+    "role": "Support Commander",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/joan.png",
+    "unlock": "campaign_4",
+    "stats": {
+      "hp": 1040,
+      "attack": 72,
+      "defense": 78,
+      "speed": 58,
+      "crit": 4,
+      "resistance": 30,
+      "morale": 98
+    },
+    "passive": {
+      "name": "Inspired Faith",
+      "description": "All allies begin battle with +8 morale."
+    },
+    "moves": [
+      "banner_strike",
+      "divine_rally",
+      "martyrs_resolve",
+      "saints_flame"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "viking_berserker",
+    "name": "Viking Berserker",
+    "title": "Rage of the North",
+    "faction": "Vikings",
+    "role": "Berserker",
+    "rarity": "Rare",
+    "cost": 2,
+    "sprite": "assets/sprites/viking_berserker.png",
+    "unlock": "campaign_1",
+    "stats": {
+      "hp": 1180,
+      "attack": 118,
+      "defense": 56,
+      "speed": 64,
+      "crit": 14,
+      "resistance": 10,
+      "morale": 70
+    },
+    "passive": {
+      "name": "Blood Rage",
+      "description": "+20 attack while below 50% HP, but -10 defense."
+    },
+    "moves": [
+      "rage_strike",
+      "blood_frenzy",
+      "reckless_charge",
+      "last_breath"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "mongol_archer",
+    "name": "Mongol Archer",
+    "title": "Steppe Predator",
+    "faction": "Mongol Empire",
+    "role": "Marksman",
+    "rarity": "Rare",
+    "cost": 2,
+    "sprite": "assets/sprites/mongol_archer.png",
+    "unlock": "campaign_2",
+    "stats": {
+      "hp": 860,
+      "attack": 94,
+      "defense": 46,
+      "speed": 88,
+      "crit": 16,
+      "resistance": 8,
+      "morale": 74
+    },
+    "passive": {
+      "name": "Horse Archer",
+      "description": "Can target back row and gains +10 speed after using a ranged skill."
+    },
+    "moves": [
+      "quick_shot",
+      "piercing_shot",
+      "crippling_arrow",
+      "arrow_storm"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "roman_centurion",
+    "name": "Roman Centurion",
+    "title": "Iron Discipline",
+    "faction": "Rome",
+    "role": "Vanguard",
+    "rarity": "Rare",
+    "cost": 2,
+    "sprite": "assets/sprites/roman_centurion.png",
+    "unlock": "campaign_3",
+    "stats": {
+      "hp": 1260,
+      "attack": 82,
+      "defense": 105,
+      "speed": 48,
+      "crit": 5,
+      "resistance": 18,
+      "morale": 88
+    },
+    "passive": {
+      "name": "Legion Discipline",
+      "description": "Takes 10% less damage while morale is above 60."
+    },
+    "moves": [
+      "gladius_cut",
+      "testudo",
+      "shield_bash",
+      "legion_command"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "anubis_warrior",
+    "name": "Anubis Warrior",
+    "title": "Jackal of the Dead",
+    "faction": "Egyptian Myth",
+    "role": "Mystic Bruiser",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/anubis_warrior.png",
+    "unlock": "campaign_23",
+    "stats": {
+      "hp": 1300,
+      "attack": 112,
+      "defense": 86,
+      "speed": 61,
+      "crit": 9,
+      "resistance": 36,
+      "morale": 90
+    },
+    "passive": {
+      "name": "Soul Weigher",
+      "description": "Heals for 15% of damage dealt to cursed enemies."
+    },
+    "moves": [
+      "khopesh_slash",
+      "soul_drain",
+      "weigh_the_heart",
+      "judgement_of_anubis"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "valkyrie",
+    "name": "Valkyrie",
+    "title": "Chooser of the Fallen",
+    "faction": "Norse Myth",
+    "role": "Support Fighter",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/valkyrie.png",
+    "unlock": "campaign_5",
+    "stats": {
+      "hp": 1120,
+      "attack": 92,
+      "defense": 82,
+      "speed": 76,
+      "crit": 8,
+      "resistance": 30,
+      "morale": 96
+    },
+    "passive": {
+      "name": "Valhalla Oath",
+      "description": "First ally to fall returns as a spirit for one extra action."
+    },
+    "moves": [
+      "spear_of_asgard",
+      "choose_the_fallen",
+      "winged_strike",
+      "valhalla_call"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "achilles",
+    "name": "Achilles",
+    "title": "Hero of Troy",
+    "faction": "Greek Myth",
+    "role": "Mythic Duelist",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/achilles.png",
+    "unlock": "campaign_7",
+    "stats": {
+      "hp": 1160,
+      "attack": 136,
+      "defense": 72,
+      "speed": 84,
+      "crit": 20,
+      "resistance": 12,
+      "morale": 82
+    },
+    "passive": {
+      "name": "Heel of Fate",
+      "description": "Critical hits against Achilles deal +25% damage, but he gains +12 focus when crit. Godlike Assault is now his Special Move."
+    },
+    "moves": [
+      "heroic_slash",
+      "spear_lunge",
+      "wrath_of_achilles",
+      "immortal_resolve"
+    ],
+    "spriteFacing": "right",
+    "specialMove": "godlike_assault"
+  },
+  {
+    "id": "minotaur_gladiator",
+    "name": "Minotaur Gladiator",
+    "title": "Labyrinth Juggernaut",
+    "faction": "Greek Myth",
+    "role": "Tank Berserker",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/minotaur_gladiator.png",
+    "unlock": "shop_1500",
+    "stats": {
+      "hp": 1360,
+      "attack": 118,
+      "defense": 96,
+      "speed": 52,
+      "crit": 9,
+      "resistance": 18,
+      "morale": 92
+    },
+    "passive": {
+      "name": "Bull Rush",
+      "description": "Shop cost 1500 coins. Also unlockable through the Labyrinth Gladiator chapter. When you move onto an enemy with open space behind them, the Minotaur shoves them 1 tile away and deals a little damage. Shield Up blocks the first incoming hit, Blood Rage grants +15% attack power, and his Special throws the axe at range."
+    },
+    "moves": [
+      "minotaur_axe_cleave",
+      "minotaur_shield_up",
+      "minotaur_blood_rage",
+      "minotaur_recover"
+    ],
+    "specialMove": "minotaur_axe_throw",
+    "spriteFacing": "right",
+    "shopCost": 1500
+  },
+  {
+    "id": "baldwin_iv",
+    "name": "Baldwin IV",
+    "title": "The Leper King",
+    "faction": "Crusader Kingdom",
+    "role": "Holy Commander",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/baldwin_iv.png",
+    "unlock": "campaign_8",
+    "stats": {
+      "hp": 1120,
+      "attack": 92,
+      "defense": 102,
+      "speed": 52,
+      "crit": 7,
+      "resistance": 34,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Leper King's Resolve",
+      "description": "Immune to Fear. Once per battle below 40% HP, allies gain morale and resistance."
+    },
+    "moves": [
+      "royal_sword",
+      "kings_command",
+      "white_banner_guard",
+      "battle_of_montgisard",
+      "holy_guard_of_jerusalem"
+    ],
+    "spriteFacing": "right",
+    "specialMove": "holy_guard_of_jerusalem"
+  },
+  {
+    "id": "grutte_pier",
+    "name": "Grutte Pier",
+    "title": "Giant of Kimswerd",
+    "faction": "Frisia",
+    "role": "Vanguard Berserker",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/grutte_pier.png",
+    "unlock": "campaign_9",
+    "stats": {
+      "hp": 1540,
+      "attack": 118,
+      "defense": 92,
+      "speed": 42,
+      "crit": 8,
+      "resistance": 16,
+      "morale": 86
+    },
+    "passive": {
+      "name": "Frisian Giant",
+      "description": "First time below 50% HP, Grutte Pier gains Rage and Guard for 2 turns."
+    },
+    "moves": [
+      "giants_cleave",
+      "frisian_roar",
+      "breaker_swing",
+      "colossus_of_kimswerd"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "napoleon",
+    "name": "Napoleon",
+    "title": "Emperor of the French",
+    "faction": "France",
+    "role": "Mounted Commander",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/napoleon.png",
+    "unlock": "campaign_10",
+    "stats": {
+      "hp": 1080,
+      "attack": 98,
+      "defense": 76,
+      "speed": 72,
+      "crit": 7,
+      "resistance": 24,
+      "morale": 98
+    },
+    "passive": {
+      "name": "Imperial Momentum",
+      "description": "At battle start allies gain +8 morale. In round 1 Napoleon gains +18 speed."
+    },
+    "moves": [
+      "imperial_sabre",
+      "cavalry_charge",
+      "imperial_command",
+      "grand_battery"
+    ],
+    "spriteFacing": "left"
+  },
+  {
+    "id": "king_arthur",
+    "name": "King Arthur",
+    "title": "Once and Future King",
+    "faction": "Camelot",
+    "role": "Holy Tank Commander",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/king_arthur.png",
+    "unlock": "campaign_18",
+    "stats": {
+      "hp": 1420,
+      "attack": 108,
+      "defense": 116,
+      "speed": 50,
+      "crit": 8,
+      "resistance": 34,
+      "morale": 98
+    },
+    "passive": {
+      "name": "Camelot's Crown",
+      "description": "At battle start allies gain +6 morale. Arthur takes 8% less damage while guarded."
+    },
+    "moves": [
+      "excalibur_cut",
+      "round_table_oath",
+      "lion_shield",
+      "once_and_future_king"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "james_bond",
+    "name": "James Bond",
+    "title": "Agent 007",
+    "faction": "MI6",
+    "role": "Spy Marksman",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/james_bond.png",
+    "unlock": "campaign_15",
+    "stats": {
+      "hp": 920,
+      "attack": 116,
+      "defense": 58,
+      "speed": 96,
+      "crit": 22,
+      "resistance": 18,
+      "morale": 86
+    },
+    "passive": {
+      "name": "Double-O Agent",
+      "description": "+10% crit against slowed, feared, or vulnerable targets."
+    },
+    "moves": [
+      "silenced_pistol",
+      "spy_gadget",
+      "shaken_not_stirred",
+      "license_to_kill"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "adrian_carton_de_wiart",
+    "name": "Adrian Carton de Wiart",
+    "title": "The Unkillable Soldier",
+    "faction": "Britain",
+    "role": "War Veteran Gunslinger",
+    "rarity": "Mythic",
+    "cost": 4,
+    "sprite": "assets/sprites/adrian_carton_de_wiart.png",
+    "unlock": "campaign_15a",
+    "stats": {
+      "hp": 1180,
+      "attack": 118,
+      "defense": 84,
+      "speed": 68,
+      "crit": 11,
+      "resistance": 32,
+      "morale": 100
+    },
+    "passive": {
+      "name": "No Man Can Kill Me",
+      "description": "Adrian takes 10% less damage below 50% HP and gains extra Focus when hit. Special: Unkillable Charge grants temporary damage reduction and ends with a revolver burst."
+    },
+    "moves": [
+      "webley_shot",
+      "bayonet_advance",
+      "iron_will",
+      "suppressive_barrage"
+    ],
+    "specialMove": "unkillable_charge",
+    "spriteFacing": "right"
+  },
+  {
+    "id": "victor_wembanyama",
+    "name": "Victor Wembanyama",
+    "title": "Alien of the Paint",
+    "faction": "NBA",
+    "role": "Court Giant Duelist",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/victor_wembanyama.png",
+    "unlock": "campaign_15b",
+    "stats": {
+      "hp": 1080,
+      "attack": 118,
+      "defense": 74,
+      "speed": 90,
+      "crit": 14,
+      "resistance": 28,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Full Court Reach",
+      "description": "Victor can move anywhere on the field. Flying Dunk jumps to the target and returns. Hellfire Basketball roots the target so it cannot move for 1 turn."
+    },
+    "moves": [
+      "wemby_long_reach",
+      "wemby_flying_dunk",
+      "wemby_dribble_evasion",
+      "wemby_recover"
+    ],
+    "specialMove": "wemby_hellfire_basketball",
+    "spriteFacing": "right"
+  },
+  {
+    "id": "the_pope",
+    "name": "The Pope",
+    "title": "Holy Pontiff",
+    "faction": "Vatican",
+    "role": "Support Commander",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/the_pope.png",
+    "unlock": "campaign_17",
+    "stats": {
+      "hp": 1080,
+      "attack": 62,
+      "defense": 88,
+      "speed": 44,
+      "crit": 3,
+      "resistance": 48,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Sacred Authority",
+      "description": "Allies with Resist heal a small amount at the start of their turn. Special: Holy Healing Rain restores all allies to 100% HP."
+    },
+    "moves": [
+      "papal_staff",
+      "apostolic_blessing",
+      "sanctuary",
+      "divine_decree"
+    ],
+    "spriteFacing": "right",
+    "specialMove": "holy_healing_rain"
+  },
+  {
+    "id": "dark_sinterklaas",
+    "name": "Dark Sinterklaas",
+    "title": "Crimson Saint",
+    "faction": "Dark Holiday",
+    "role": "Summoner Healer",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/dark_sinterklaas.png",
+    "unlock": "campaign_17b",
+    "stats": {
+      "hp": 1120,
+      "attack": 96,
+      "defense": 92,
+      "speed": 54,
+      "crit": 6,
+      "resistance": 48,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Crimson Procession",
+      "description": "Can move the whole vertical column and up to 4 horizontal blocks. Special summons three Shadow Pieten who fight and move until they die."
+    },
+    "moves": [
+      "sinter_staff_bolt",
+      "sinter_dark_blessing",
+      "sinter_cane_strike",
+      "sinter_nightmare_bell"
+    ],
+    "specialMove": "summon_shadow_pieten",
+    "spriteFacing": "right"
+  },
+  {
+    "id": "the_hooligan",
+    "name": "The Hooligan",
+    "title": "Street Enforcer",
+    "faction": "Underground",
+    "role": "Berserker Control",
+    "rarity": "Epic",
+    "cost": 3,
+    "sprite": "assets/sprites/the_hooligan.png",
+    "unlock": "campaign_14",
+    "stats": {
+      "hp": 1240,
+      "attack": 112,
+      "defense": 66,
+      "speed": 70,
+      "crit": 12,
+      "resistance": 10,
+      "morale": 74
+    },
+    "passive": {
+      "name": "No Rules",
+      "description": "+12 attack against stunned, feared, or vulnerable targets."
+    },
+    "moves": [
+      "bat_swing",
+      "street_charge",
+      "crowd_intimidation",
+      "riot_breaker"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "battle_priest",
+    "name": "Battle Priest",
+    "title": "Warrior of the Sacred Flame",
+    "faction": "Holy Order",
+    "role": "Healer Commander",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/battle_priest.png",
+    "unlock": "campaign_16",
+    "stats": {
+      "hp": 1160,
+      "attack": 74,
+      "defense": 92,
+      "speed": 46,
+      "crit": 4,
+      "resistance": 44,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Field Chaplain",
+      "description": "Healing skills also grant extra morale. Allies with Guard receive small healing at turn start."
+    },
+    "moves": [
+      "blessed_mace",
+      "battlefield_heal",
+      "war_prayer",
+      "divine_sanctum"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "ronin",
+    "name": "Ronin",
+    "title": "Masterless Blade",
+    "faction": "Samurai",
+    "role": "Duelist Assassin",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/ronin.png",
+    "unlock": "campaign_13",
+    "stats": {
+      "hp": 990,
+      "attack": 128,
+      "defense": 60,
+      "speed": 94,
+      "crit": 20,
+      "resistance": 14,
+      "morale": 80
+    },
+    "passive": {
+      "name": "Masterless Fury",
+      "description": "+12% damage against bleeding or feared targets."
+    },
+    "moves": [
+      "ronin_cut",
+      "oni_mask_feint",
+      "blood_moon_slash",
+      "masterless_execution"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "plague_doctor",
+    "name": "Plague Doctor",
+    "title": "Miasma Surgeon",
+    "faction": "Black Apothecary",
+    "role": "Poison Control",
+    "rarity": "Epic",
+    "cost": 3,
+    "sprite": "assets/sprites/plague_doctor.png",
+    "unlock": "campaign_12",
+    "stats": {
+      "hp": 980,
+      "attack": 78,
+      "defense": 70,
+      "speed": 62,
+      "crit": 5,
+      "resistance": 38,
+      "morale": 72
+    },
+    "passive": {
+      "name": "Contagion",
+      "description": "Poisoned enemies also lose morale at the start of their turn."
+    },
+    "moves": [
+      "cane_strike",
+      "toxic_vial",
+      "miasma_cloud",
+      "black_death"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "attila_the_hun",
+    "name": "Atilla the Hun",
+    "title": "Scourge of the Steppe",
+    "faction": "Hunnic Horde",
+    "role": "Commander Berserker",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/attila_the_hun.png",
+    "unlock": "campaign_22",
+    "stats": {
+      "hp": 1390,
+      "attack": 118,
+      "defense": 86,
+      "speed": 66,
+      "crit": 11,
+      "resistance": 22,
+      "morale": 96
+    },
+    "passive": {
+      "name": "Scourge Instinct",
+      "description": "+12% damage against wounded enemies below 50% HP."
+    },
+    "moves": [
+      "steppe_cleave",
+      "hun_war_spear",
+      "horde_command",
+      "scourge_charge"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "cleopatra",
+    "name": "Cleopatra",
+    "title": "Queen of the Nile",
+    "faction": "Egypt",
+    "role": "Mystic Commander",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/cleopatra.png",
+    "unlock": "campaign_19",
+    "stats": {
+      "hp": 1040,
+      "attack": 88,
+      "defense": 74,
+      "speed": 72,
+      "crit": 8,
+      "resistance": 42,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Queen's Presence",
+      "description": "While the Sphinx is alive, Cleopatra gains Guard and heals at the start of her turn."
+    },
+    "moves": [
+      "royal_khopesh",
+      "asp_venom",
+      "queen_decree",
+      "nile_charm"
+    ],
+    "specialMove": "summon_the_sphinx",
+    "spriteFacing": "right"
+  },
+  {
+    "id": "african_tribe_warrior",
+    "name": "African Tribe Warrior",
+    "title": "Spear of the Savanna",
+    "faction": "Savanna Tribe",
+    "role": "Vanguard Commander",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/african_tribe_warrior.png",
+    "unlock": "campaign_20",
+    "stats": {
+      "hp": 1280,
+      "attack": 106,
+      "defense": 92,
+      "speed": 68,
+      "crit": 10,
+      "resistance": 24,
+      "morale": 96
+    },
+    "passive": {
+      "name": "Pride Bond",
+      "description": "While the Lion King is alive, this warrior gains Guard and +10 morale at turn start."
+    },
+    "moves": [
+      "ancestral_spear",
+      "shield_of_the_savanna",
+      "tribal_war_cry",
+      "lion_spear_lunge"
+    ],
+    "specialMove": "summon_the_lion_king",
+    "spriteFacing": "right"
+  },
+  {
+    "id": "cyclops_titan",
+    "name": "The Cyclops",
+    "title": "Raid Titan",
+    "faction": "Titan",
+    "role": "Titan Boss",
+    "rarity": "Mythic",
+    "cost": 9,
+    "sprite": "assets/sprites/cyclops_titan.png",
+    "unlock": "hidden",
+    "stats": {
+      "hp": 6200,
+      "attack": 160,
+      "defense": 145,
+      "speed": 24,
+      "crit": 4,
+      "resistance": 35,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Colossal Body",
+      "description": "Raid boss. Huge HP, attack and defense, but slow and limited reach."
+    },
+    "moves": [
+      "titan_chain_slam",
+      "titan_ground_breaker",
+      "titan_roar",
+      "titan_rage",
+      "titan_colossal_crush"
+    ],
+    "spriteFacing": "right",
+    "hidden": true,
+    "isTitan": true
+  },
+  {
+    "id": "fire_dragon_titan",
+    "name": "The Fire Dragon Titan",
+    "title": "Raid Titan",
+    "faction": "Titan",
+    "role": "Fire Titan Boss",
+    "rarity": "Mythic",
+    "cost": 10,
+    "sprite": "assets/sprites/fire_dragon_titan.png",
+    "unlock": "hidden",
+    "stats": {
+      "hp": 6900,
+      "attack": 172,
+      "defense": 132,
+      "speed": 30,
+      "crit": 6,
+      "resistance": 42,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Molten Scales",
+      "description": "Raid boss. Massive HP and fire damage. Slow and limited reach, but punishes front-line stacking with burn."
+    },
+    "moves": [
+      "dragon_molten_claw",
+      "dragon_fire_breath",
+      "dragon_wing_quake",
+      "dragon_inferno_roar",
+      "dragon_apocalypse_flame"
+    ],
+    "spriteFacing": "right",
+    "hidden": true,
+    "isTitan": true,
+    "titanKind": "fire"
+  },
+  {
+    "id": "ground_dragon_titan",
+    "name": "The Ground Dragon",
+    "title": "Raid Titan",
+    "faction": "Titan",
+    "role": "Earth Titan Boss",
+    "rarity": "Mythic",
+    "cost": 10,
+    "sprite": "assets/sprites/ground_dragon_titan.png",
+    "unlock": "hidden",
+    "stats": {
+      "hp": 7300,
+      "attack": 168,
+      "defense": 154,
+      "speed": 22,
+      "crit": 5,
+      "resistance": 46,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Bedrock Scales",
+      "description": "Raid boss. Enormous HP and defense, with crystal-earth attacks that stun, slow and punish front-line pressure. Very slow and limited reach."
+    },
+    "moves": [
+      "ground_dragon_boulder_bite",
+      "ground_dragon_tectonic_crash",
+      "ground_dragon_crystal_spikes",
+      "ground_dragon_earth_roar",
+      "ground_dragon_worldsplitter"
+    ],
+    "spriteFacing": "right",
+    "hidden": true,
+    "isTitan": true,
+    "titanKind": "earth"
+  },
+  {
+    "id": "lucifer_demon_king",
+    "name": "Lucifer the Demon King",
+    "title": "Lord of the Infernal Throne",
+    "faction": "Hell",
+    "role": "Demon King",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/lucifer_demon_king.png",
+    "unlock": "campaign_24",
+    "stats": {
+      "hp": 1320,
+      "attack": 126,
+      "defense": 92,
+      "speed": 78,
+      "crit": 14,
+      "resistance": 36,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Infernal Majesty",
+      "description": "Burning enemies suffer -8 morale, and Lucifer gains +8 focus whenever he inflicts Fear or Burn."
+    },
+    "moves": [
+      "hellfire_blade",
+      "abyssal_chains",
+      "dread_coronation",
+      "throne_of_hell"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "the_amazon_girl",
+    "name": "The Amazon Girl",
+    "title": "Queen of the Wild Hunt",
+    "faction": "Amazon Tribe",
+    "role": "Huntress Duelist",
+    "rarity": "Legendary",
+    "cost": 4,
+    "sprite": "assets/sprites/the_amazon_girl.png",
+    "unlock": "campaign_21",
+    "stats": {
+      "hp": 980,
+      "attack": 116,
+      "defense": 66,
+      "speed": 104,
+      "crit": 16,
+      "resistance": 18,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Wild Hunt",
+      "description": "Against marked or bleeding enemies, Amazon Girl gains +10 crit and +8 speed."
+    },
+    "moves": [
+      "amazon_axe_cleave",
+      "hunter_bow_shot",
+      "predator_dash",
+      "queen_of_the_wild"
+    ],
+    "spriteFacing": "right"
+  },
+  {
+    "id": "merlin",
+    "name": "Merlin",
+    "title": "Archmage of the Crystal Storm",
+    "faction": "Camelot",
+    "role": "Long Range Mystic Healer",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/merlin.png",
+    "unlock": "shop_1000",
+    "stats": {
+      "hp": 980,
+      "attack": 112,
+      "defense": 62,
+      "speed": 74,
+      "crit": 10,
+      "resistance": 48,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Arcane Wisdom",
+      "description": "Long range magic user. Healing and magic attacks build focus quickly."
+    },
+    "moves": [
+      "arcane_bolt",
+      "crystal_chain_lightning",
+      "wizard_mend",
+      "arcane_barrier"
+    ],
+    "specialMove": "thunder_strike",
+    "spriteFacing": "right",
+    "shopCost": 1000
+  },
+  {
+    "id": "amelia_earhart",
+    "name": "Amelia Earhart",
+    "title": "Sky Ace",
+    "faction": "Aviators",
+    "role": "Fast Ranged Support",
+    "rarity": "Mythic",
+    "cost": 4,
+    "sprite": "assets/sprites/amelia_earhart.png",
+    "unlock": "shop_1000",
+    "stats": {
+      "hp": 880,
+      "attack": 104,
+      "defense": 54,
+      "speed": 92,
+      "crit": 11,
+      "resistance": 42,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Aerial Instinct",
+      "description": "Amelia has increased speed and a chance to dodge incoming attacks."
+    },
+    "moves": [
+      "flare_gun_shot",
+      "warning_flash",
+      "navigator_support",
+      "tailwind_signal"
+    ],
+    "specialMove": "sky_raid",
+    "spriteFacing": "right",
+    "shopCost": 1000
+  },
+  {
+    "id": "evil_gnome",
+    "name": "Evil Gnome",
+    "title": "Dark Crystal Trickster",
+    "faction": "Dark Forest",
+    "role": "Shop Mystic Healer",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/evil_gnome.png",
+    "unlock": "shop_1500",
+    "stats": {
+      "hp": 920,
+      "attack": 108,
+      "defense": 64,
+      "speed": 86,
+      "crit": 13,
+      "resistance": 46,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Sneaky Little Menace",
+      "description": "Can hide to dodge the next incoming attack. Special transforms him into a larger war form with +50% attack and defense."
+    },
+    "moves": [
+      "gnome_staff_bolt",
+      "gnome_shadow_mend",
+      "gnome_hide",
+      "gnome_bite"
+    ],
+    "specialMove": "gnome_dark_transformation",
+    "superSprite": "assets/sprites/evil_gnome_transformed.png",
+    "superSpriteFacing": "right",
+    "spriteFacing": "right",
+    "shopCost": 1500
+  },
+  {
+    "id": "medusa",
+    "name": "Medusa",
+    "title": "Gorgon Queen",
+    "faction": "Greek Myth",
+    "role": "Shop Control Duelist",
+    "rarity": "Mythic",
+    "cost": 5,
+    "sprite": "assets/sprites/medusa.png",
+    "unlock": "shop_1800",
+    "stats": {
+      "hp": 1040,
+      "attack": 112,
+      "defense": 78,
+      "speed": 78,
+      "crit": 12,
+      "resistance": 44,
+      "morale": 100
+    },
+    "passive": {
+      "name": "Gorgon Blood",
+      "description": "Medusa controls tempo with poison, guard, stun and petrify. Her Special turns a chosen target to stone for 2 turns."
+    },
+    "moves": [
+      "medusa_snake_bite",
+      "medusa_venom_bolt",
+      "medusa_gorgon_guard",
+      "medusa_hypnotic_gaze"
+    ],
+    "specialMove": "medusa_petrifying_gaze",
+    "spriteFacing": "right",
+    "shopCost": 1800
+  }
+]
