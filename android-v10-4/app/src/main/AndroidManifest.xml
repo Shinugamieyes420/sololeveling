@@ -1,11 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.health.READ_STEPS" />
     <queries><package android:name="com.google.android.apps.healthdata" /></queries>
     <application android:allowBackup="true" android:label="The System" android:icon="@drawable/ic_system" android:supportsRtl="true" android:theme="@style/Theme.TheSystem" android:usesCleartextTraffic="false" android:resizeableActivity="true">
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity android:name=".SystemV11Activity" android:exported="true">
             <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
         </activity>
+        <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".PermissionsRationaleActivity" android:exported="true">
             <intent-filter><action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE"/><category android:name="android.intent.category.DEFAULT"/></intent-filter>
         </activity>
