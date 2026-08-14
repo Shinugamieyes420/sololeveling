@@ -21,11 +21,12 @@ jobs:
         run: |
           mkdir -p toolkit/build-tools
           cp "$ANDROID_HOME/platforms/android-35/android.jar" toolkit/android.jar
+          cp "$ANDROID_HOME/build-tools/35.0.0/aapt2" toolkit/build-tools/aapt2
           cp "$ANDROID_HOME/build-tools/35.0.0/d8" toolkit/build-tools/d8
           cp "$ANDROID_HOME/build-tools/35.0.0/apksigner" toolkit/build-tools/apksigner
           cp "$ANDROID_HOME/build-tools/35.0.0/zipalign" toolkit/build-tools/zipalign
           cp -R "$ANDROID_HOME/build-tools/35.0.0/lib" toolkit/build-tools/lib
-          chmod +x toolkit/build-tools/d8 toolkit/build-tools/apksigner toolkit/build-tools/zipalign
+          chmod +x toolkit/build-tools/aapt2 toolkit/build-tools/d8 toolkit/build-tools/apksigner toolkit/build-tools/zipalign
       - uses: actions/upload-artifact@v4
         with:
           name: android-apk-toolchain-35
