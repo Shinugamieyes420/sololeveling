@@ -9,8 +9,8 @@ android {
         applicationId 'com.remon.thesystem'
         minSdk 28
         targetSdk 36
-        versionCode 11000
-        versionName '11.0'
+        versionCode 11010
+        versionName '11.1'
     }
     buildFeatures {
         buildConfig true
@@ -32,4 +32,55 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.10.1'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.9.2'
     implementation 'androidx.health.connect:connect-client:1.1.0'
+}
+
+// v11.1 UI patch: inject a safe reset option into the System Menu at build time.
+// This keeps the stable v11 source compatible while making reset part of every v11.1 APK build.
+tasks.named("preBuild").configure {
+    doFirst {
+        def source = file('src/main/java/com/remon/thesystem/SystemV11Activity.kt')
+        def text = source.getText('UTF-8')
+        if (!text.contains('RESET PLAYER DATA')) {
+            def oldMenuTail = '''        items.forEach { (id, label) ->
+            box.addView(systemButton(label, if (id == screen) green else blue) {
+                dialog.dismiss(); show(id)
+            }, LinearLayout.LayoutParams(-1, 48.dp).apply { setMargins(0, 3.dp, 0, 3.dp) })
+        }
+        dialog.show()
+    }
+
+    private fun showAwakening() {'''
+            def newMenuTail = '''        items.forEach { (id, label) ->
+            box.addView(systemButton(label, if (id == screen) green else blue) {
+                dialog.dismiss(); show(id)
+            }, LinearLayout.LayoutParams(-1, 48.dp).apply { setMargins(0, 3.dp, 0, 3.dp) })
+        }
+        box.addView(systemButton("RESET PLAYER DATA", red) {
+            dialog.dismiss()
+            confirmReset()
+        }, LinearLayout.LayoutParams(-1, 48.dp).apply { setMargins(0, 10.dp, 0, 3.dp) })
+        dialog.show()
+    }
+
+    private fun confirmReset() {
+        AlertDialog.Builder(this)
+            .setTitle("RESET PLAYER DATA?")
+            .setMessage("Weet je het zeker? Alle levels, XP, Gold, Hunter Rank, quests, Daily-progress, Gate Keys, stats, Job Change en andere lokale voortgang worden permanent gewist. Dit kan niet ongedaan worden gemaakt.")
+            .setNegativeButton("CANCEL", null)
+            .setPositiveButton("RESET EVERYTHING") { _, _ ->
+                getSharedPreferences("system_player_v11", android.content.Context.MODE_PRIVATE).edit().clear().commit()
+                getSharedPreferences("system_native_v104", android.content.Context.MODE_PRIVATE).edit().clear().commit()
+                toast("PLAYER DATA RESET")
+                recreate()
+            }
+            .show()
+    }
+
+    private fun showAwakening() {'''
+            if (!text.contains(oldMenuTail)) {
+                throw new GradleException('Could not inject v11.1 reset menu: expected System Menu block not found.')
+            }
+            source.write(text.replace(oldMenuTail, newMenuTail), 'UTF-8')
+        }
+    }
 }
