@@ -9,21 +9,13 @@ android {
         applicationId 'com.remon.thesystem'
         minSdk 28
         targetSdk 36
-        versionCode 11010
-        versionName '11.1'
+        versionCode 11020
+        versionName '11.2'
     }
-    buildFeatures {
-        buildConfig true
-    }
+    buildFeatures { buildConfig true }
     buildTypes {
-        debug {
-            applicationIdSuffix '.debug'
-            versionNameSuffix '-debug'
-        }
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+        debug { applicationIdSuffix '.debug'; versionNameSuffix '-debug' }
+        release { minifyEnabled false; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
     kotlinOptions { jvmTarget = '17' }
@@ -34,14 +26,45 @@ dependencies {
     implementation 'androidx.health.connect:connect-client:1.1.0'
 }
 
-// v11.1 UI patch: inject a safe reset option into the System Menu at build time.
-// This keeps the stable v11 source compatible while making reset part of every v11.1 APK build.
+// v11.2 restores the feature-rich v10 systems inside the v11 System UI.
 tasks.named("preBuild").configure {
     doFirst {
         def source = file('src/main/java/com/remon/thesystem/SystemV11Activity.kt')
         def text = source.getText('UTF-8')
-        if (!text.contains('RESET PLAYER DATA')) {
-            def oldMenuTail = '''        items.forEach { (id, label) ->
+        if (!text.contains('FEATURE RESTORE V11.2')) {
+            text = text.replace(
+'''    private lateinit var battle: BattleEngineV11
+    private lateinit var root: LinearLayout''',
+'''    private lateinit var battle: BattleEngineV11
+    private lateinit var features: FeatureStoreV11
+    // FEATURE RESTORE V11.2
+    private lateinit var root: LinearLayout''')
+
+            text = text.replace(
+'''        store = PlayerStoreV11(this)
+        battle = BattleEngineV11(store)''',
+'''        store = PlayerStoreV11(this)
+        battle = BattleEngineV11(store)
+        features = FeatureStoreV11(this)''')
+
+            text = text.replace(
+'''            "SHOP" -> renderShop()
+            "STATUS" -> renderStatus()''',
+'''            "SHOP" -> renderShop()
+            "INVENTORY" -> renderInventory()
+            "STATUS" -> renderStatus()''')
+
+            text = text.replace(
+'''            "GATE" to "GATE ACCESS",
+            "SHOP" to "SYSTEM SHOP",
+            "STATUS" to "PLAYER STATS",''',
+'''            "GATE" to "GATE ACCESS",
+            "SHOP" to "SYSTEM SHOP",
+            "INVENTORY" to "INVENTORY / EQUIPMENT",
+            "STATUS" to "PLAYER STATS",''')
+
+            text = text.replace(
+'''        items.forEach { (id, label) ->
             box.addView(systemButton(label, if (id == screen) green else blue) {
                 dialog.dismiss(); show(id)
             }, LinearLayout.LayoutParams(-1, 48.dp).apply { setMargins(0, 3.dp, 0, 3.dp) })
@@ -49,15 +72,14 @@ tasks.named("preBuild").configure {
         dialog.show()
     }
 
-    private fun showAwakening() {'''
-            def newMenuTail = '''        items.forEach { (id, label) ->
+    private fun showAwakening() {''',
+'''        items.forEach { (id, label) ->
             box.addView(systemButton(label, if (id == screen) green else blue) {
                 dialog.dismiss(); show(id)
             }, LinearLayout.LayoutParams(-1, 48.dp).apply { setMargins(0, 3.dp, 0, 3.dp) })
         }
         box.addView(systemButton("RESET PLAYER DATA", red) {
-            dialog.dismiss()
-            confirmReset()
+            dialog.dismiss(); confirmReset()
         }, LinearLayout.LayoutParams(-1, 48.dp).apply { setMargins(0, 10.dp, 0, 3.dp) })
         dialog.show()
     }
@@ -65,22 +87,124 @@ tasks.named("preBuild").configure {
     private fun confirmReset() {
         AlertDialog.Builder(this)
             .setTitle("RESET PLAYER DATA?")
-            .setMessage("Weet je het zeker? Alle levels, XP, Gold, Hunter Rank, quests, Daily-progress, Gate Keys, stats, Job Change en andere lokale voortgang worden permanent gewist. Dit kan niet ongedaan worden gemaakt.")
+            .setMessage("Weet je het zeker? Alle levels, XP, Gold, Hunter Rank, quests, Daily-progress, Gate Keys, inventory, equipment, stats en Job Change worden permanent gewist. Dit kan niet ongedaan worden gemaakt.")
             .setNegativeButton("CANCEL", null)
             .setPositiveButton("RESET EVERYTHING") { _, _ ->
                 getSharedPreferences("system_player_v11", android.content.Context.MODE_PRIVATE).edit().clear().commit()
                 getSharedPreferences("system_native_v104", android.content.Context.MODE_PRIVATE).edit().clear().commit()
+                getSharedPreferences("system_features_v11", android.content.Context.MODE_PRIVATE).edit().clear().commit()
                 toast("PLAYER DATA RESET")
                 recreate()
-            }
-            .show()
+            }.show()
     }
 
-    private fun showAwakening() {'''
-            if (!text.contains(oldMenuTail)) {
-                throw new GradleException('Could not inject v11.1 reset menu: expected System Menu block not found.')
-            }
-            source.write(text.replace(oldMenuTail, newMenuTail), 'UTF-8')
+    private fun showAwakening() {''')
+
+            text = text.replace(
+'''    private fun renderQuests() {
+        add(systemTitle("QUEST INFO", "SYSTEM DIRECTIVES"), 3)
+        store.quests.forEach { add(questCard(it), 7) }
+    }''',
+'''    private fun renderQuests() {
+        add(systemTitle("QUEST INFO", "SYSTEM DIRECTIVES"), 3)
+        add(systemButton("+ CREATE CUSTOM QUEST", green) { createQuestDialog() }, 10)
+        store.quests.forEach { add(questCard(it), 7) }
+    }
+
+    private fun createQuestDialog() {
+        val wrap = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(18.dp, 8.dp, 18.dp, 0) }
+        val name = EditText(this).apply { hint = "QUEST NAME"; setTextColor(Color.WHITE); setHintTextColor(muted); setBackgroundResource(R.drawable.system_input) }
+        val description = EditText(this).apply { hint = "DESCRIPTION"; setTextColor(Color.WHITE); setHintTextColor(muted); setBackgroundResource(R.drawable.system_input) }
+        val minutes = EditText(this).apply { hint = "MINUTES"; inputType = InputType.TYPE_CLASS_NUMBER; setTextColor(Color.WHITE); setHintTextColor(muted); setBackgroundResource(R.drawable.system_input) }
+        val xp = EditText(this).apply { hint = "XP REWARD"; inputType = InputType.TYPE_CLASS_NUMBER; setTextColor(Color.WHITE); setHintTextColor(muted); setBackgroundResource(R.drawable.system_input) }
+        listOf(name, description, minutes, xp).forEach { wrap.addView(it, LinearLayout.LayoutParams(-1, 50.dp).apply { setMargins(0, 4.dp, 0, 4.dp) }) }
+        AlertDialog.Builder(this).setTitle("CREATE QUEST").setView(wrap)
+            .setNegativeButton("CANCEL", null)
+            .setPositiveButton("CREATE") { _, _ ->
+                val questName = name.text.toString().trim()
+                if (questName.isNotEmpty()) {
+                    val rewardXp = (xp.text.toString().toIntOrNull() ?: 35).coerceIn(5, 250)
+                    val rewardGold = (rewardXp * 1.7).toInt().coerceAtLeast(10)
+                    store.quests.add(V11Quest("custom_${System.currentTimeMillis()}", questName, description.text.toString().trim(), rewardXp, rewardGold, (minutes.text.toString().toIntOrNull() ?: 30).coerceIn(1, 480), "custom", "vit"))
+                    store.save(); show("QUEST")
+                }
+            }.show()
+    }''')
+
+            text = text.replace(
+'''        val health = panel()''',
+'''        add(systemButton("+ ADD DAILY TASK", purple) { addDailyDialog() }, 9)
+        val health = panel()''')
+
+            text = text.replace(
+'''    private fun renderGate() {''',
+'''    private fun addDailyDialog() {
+        val wrap = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(18.dp, 8.dp, 18.dp, 0) }
+        val name = EditText(this).apply { hint = "TASK NAME"; setTextColor(Color.WHITE); setHintTextColor(muted); setBackgroundResource(R.drawable.system_input) }
+        val goal = EditText(this).apply { hint = "GOAL"; inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL; setTextColor(Color.WHITE); setHintTextColor(muted); setBackgroundResource(R.drawable.system_input) }
+        val unit = EditText(this).apply { hint = "UNIT (min / reps / km / task)"; setTextColor(Color.WHITE); setHintTextColor(muted); setBackgroundResource(R.drawable.system_input) }
+        listOf(name, goal, unit).forEach { wrap.addView(it, LinearLayout.LayoutParams(-1, 50.dp).apply { setMargins(0, 4.dp, 0, 4.dp) }) }
+        AlertDialog.Builder(this).setTitle("ADD DAILY TASK").setView(wrap)
+            .setNegativeButton("CANCEL", null)
+            .setPositiveButton("ADD") { _, _ ->
+                val taskName = name.text.toString().trim()
+                if (taskName.isNotEmpty()) {
+                    store.daily.add(V11DailyTask("daily_${System.currentTimeMillis()}", taskName, (goal.text.toString().toDoubleOrNull() ?: 1.0).coerceAtLeast(0.1), 0.0, unit.text.toString().trim().ifBlank { "task" }))
+                    store.save(); show("DAILY")
+                }
+            }.show()
+    }
+
+    private fun renderGate() {''')
+
+            text = text.replace(
+'''        shopItem("E-Rank Gate Key", "Additional E-Rank dungeon entry", 180) { store.eKeys++ }
+    }''',
+'''        shopItem("E-Rank Gate Key", "Additional E-Rank dungeon entry", 180) { store.eKeys++ }
+        add(systemTitle("EQUIPMENT SHOP", "WEAPONS / ARMOR / ACCESSORIES"), 8)
+        features.catalog.forEach { item ->
+            val card = panel()
+            card.addView(systemText("[${item.rank}] ${item.name}", Color.WHITE, 14f, false, true))
+            card.addView(systemText("${item.slot.uppercase()}   •   ${item.description}", muted, 10f))
+            card.addView(systemText("OWNED ${features.ownedCount(item.id)}", blue, 9f))
+            card.addView(systemButton("BUY  •  ${item.price} G", gold) { toast(features.buyGear(store, item)); show("SHOP") })
+            add(card, 7)
+        }
+    }''')
+
+            text = text.replace(
+'''    private fun renderStatus() {''',
+'''    private fun renderInventory() {
+        add(systemTitle("INVENTORY", "EQUIPMENT MANAGEMENT"), 3)
+        val equipped = panel()
+        equipped.addView(systemText("EQUIPPED", blue, 10f, true, true))
+        listOf("weapon", "armor", "accessory").forEach { slot ->
+            val item = features.equippedItem(slot)
+            equipped.addView(systemText("${slot.uppercase()}   ${item?.name ?: "NONE"}", if (item == null) muted else Color.WHITE, 12f))
+            if (item != null) equipped.addView(systemButton("UNEQUIP ${item.name}", red) { toast(features.unequip(store, slot)); show("INVENTORY") })
+        }
+        add(equipped, 10)
+        add(systemText("OWNED EQUIPMENT", Color.WHITE, 15f, true, true), 6)
+        val owned = features.ownedGear()
+        if (owned.isEmpty()) add(systemText("No equipment owned yet. Visit the System Shop.", muted, 11f, true))
+        owned.forEach { item ->
+            val card = panel()
+            card.addView(systemText("[${item.rank}] ${item.name}  ×${features.ownedCount(item.id)}", Color.WHITE, 14f, false, true))
+            card.addView(systemText("${item.slot.uppercase()}   •   ${item.description}", muted, 10f))
+            val actions = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+            actions.addView(systemButton(if (features.equippedId(item.slot) == item.id) "EQUIPPED" else "EQUIP", green) { toast(features.equip(store, item)); show("INVENTORY") }, LinearLayout.LayoutParams(0, 46.dp, 1f).apply { marginEnd = 3.dp })
+            actions.addView(systemButton("SELL", gold) { toast(features.sell(store, item)); show("INVENTORY") }, LinearLayout.LayoutParams(0, 46.dp, 1f).apply { marginStart = 3.dp })
+            card.addView(actions); add(card, 7)
+        }
+        val consumables = panel()
+        consumables.addView(systemText("CONSUMABLES", blue, 10f, true, true))
+        store.consumables.forEach { (name, amount) -> consumables.addView(systemText("$name   ×$amount", Color.WHITE, 11f)) }
+        add(consumables)
+    }
+
+    private fun renderStatus() {''')
+
+            source.write(text, 'UTF-8')
         }
     }
 }
