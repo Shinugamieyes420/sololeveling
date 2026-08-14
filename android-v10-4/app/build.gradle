@@ -12,6 +12,9 @@ android {
         versionCode 11000
         versionName '11.0'
     }
+    buildFeatures {
+        buildConfig true
+    }
     signingConfigs {
         systemUpdate {
             storeFile file('../signing/the_system_update.jks')
