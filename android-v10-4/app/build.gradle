@@ -9,12 +9,27 @@ android {
         applicationId 'com.remon.thesystem'
         minSdk 28
         targetSdk 36
-        versionCode 10400
-        versionName '10.4'
+        versionCode 11000
+        versionName '11.0'
+    }
+    signingConfigs {
+        systemUpdate {
+            storeFile file('../signing/the_system_update.jks')
+            storePassword 'systemupdate11'
+            keyAlias 'thesystem'
+            keyPassword 'systemupdate11'
+        }
     }
     buildTypes {
-        debug { applicationIdSuffix '.debug'; versionNameSuffix '-debug' }
-        release { minifyEnabled false; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' }
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+        release {
+            signingConfig signingConfigs.systemUpdate
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
     kotlinOptions { jvmTarget = '17' }
