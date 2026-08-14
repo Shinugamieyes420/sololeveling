@@ -15,21 +15,12 @@ android {
     buildFeatures {
         buildConfig true
     }
-    signingConfigs {
-        systemUpdate {
-            storeFile file('../signing/the_system_update.jks')
-            storePassword 'systemupdate11'
-            keyAlias 'thesystem'
-            keyPassword 'systemupdate11'
-        }
-    }
     buildTypes {
         debug {
             applicationIdSuffix '.debug'
             versionNameSuffix '-debug'
         }
         release {
-            signingConfig signingConfigs.systemUpdate
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
