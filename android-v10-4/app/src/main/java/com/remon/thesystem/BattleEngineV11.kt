@@ -46,7 +46,7 @@ class BattleEngineV11(private val store:PlayerStoreV11){
     }
     private fun spawn(){
         current=when(gateRank){"D"->when(room){1->spider;2->guard;else->orc};"C"->when(room){1->guard;2->spider;3->orc;else->minotaur};"JOB"->knight;else->if(room==1)goblin else wolf}
-        val scale=1f+((store.level-2).coerceAtLeast(0)*.02f);enemyMaxHp=(current.hp*scale).roundToInt();enemyHp=enemyMaxHp;enemyBreak=current.breakMax;analyzed=false;brokenTurns=0;breakThisRound=0
+        val scale=1f+((store.level-2).coerceAtLeast(0)*0.02f);enemyMaxHp=(current.hp*scale).roundToInt();enemyHp=enemyMaxHp;enemyBreak=current.breakMax;analyzed=false;brokenTurns=0;breakThisRound=0
     }
     private fun startRound(){ap=2;breakThisRound=0;guarded=false;perfectGuard=false;if(rushCd>0)rushCd--;if(vitalCd>0)vitalCd--;if(bleedTurns>0){playerHp=(playerHp-4).coerceAtLeast(0);bleedTurns--;logs.add(0,"Bleed dealt 4 damage.")};intent=chooseIntent();if(playerHp<=0)lose()}
     private fun chooseIntent():V11Intent{
@@ -60,21 +60,21 @@ class BattleEngineV11(private val store:PlayerStoreV11){
     }
     fun state()=V11BattleState(current.name,enemyHp,enemyMaxHp,enemyBreak,current.breakMax,playerHp,playerMp,ap,round,intent,analyzed,brokenTurns>0,finished,victory,logs.toList())
     fun analyze():String{if(!spend(1))return"Not enough AP";analyzed=true;val t="${intent.name}: ${intent.min}-${intent.max} damage${if(intent.interrupt>0)", interrupt at ${intent.interrupt} Break" else ""}.";logs.add(0,"ANALYZE — $t");autoTurn();return t}
-    fun attack(quality:String){if(!spend(1))return;val m=when(quality){"PERFECT"->1.25;"MISS"->.70;else->1.0};val br=when(quality){"PERFECT"->10;"MISS"->3;else->6};hit(baseDamage(m),br,"$quality Attack");autoTurn()}
-    fun daggerRush():String{if(store.level<4)return"Unlocks at level 4";if(rushCd>0)return"Cooldown $rushCd";if(ap<1||playerMp<8)return"Need 1 AP and 8 MP";ap--;playerMp-=8;rushCd=2;hit(baseDamage(.62),4,"Dagger Rush I");if(enemyHp>0)hit(baseDamage(.62),4,"Dagger Rush II");autoTurn();return"Dagger Rush"}
+    fun attack(quality:String){if(!spend(1))return;val m=when(quality){"PERFECT"->1.25;"MISS"->0.70;else->1.0};val br=when(quality){"PERFECT"->10;"MISS"->3;else->6};hit(baseDamage(m),br,"$quality Attack");autoTurn()}
+    fun daggerRush():String{if(store.level<4)return"Unlocks at level 4";if(rushCd>0)return"Cooldown $rushCd";if(ap<1||playerMp<8)return"Need 1 AP and 8 MP";ap--;playerMp-=8;rushCd=2;hit(baseDamage(0.62),4,"Dagger Rush I");if(enemyHp>0)hit(baseDamage(0.62),4,"Dagger Rush II");autoTurn();return"Dagger Rush"}
     fun vitalStrike(quality:String):String{if(store.level<8)return"Unlocks at level 8";if(vitalCd>0)return"Cooldown $vitalCd";if(ap<2||playerMp<12)return"Need 2 AP and 12 MP";ap-=2;playerMp-=12;vitalCd=3;val m=when(quality){"PERFECT"->2.0;"MISS"->1.2;else->1.7};hit(baseDamage(m),18,"Vital Strike");autoTurn();return"Vital Strike"}
     fun guard(quality:String){if(!spend(1))return;guarded=true;perfectGuard=quality=="PERFECT";logs.add(0,if(perfectGuard)"PERFECT GUARD" else "Guard prepared");autoTurn()}
     fun potion(name:String):String{if(ap<1)return"Need 1 AP";val n=store.consumables[name]?:0;if(n<=0)return"No $name";ap--;store.consumables[name]=n-1;if(name.startsWith("Healing"))playerHp=(playerHp+45).coerceAtMost(store.maxHp) else playerMp=(playerMp+30).coerceAtMost(store.maxMp);store.save();autoTurn();return"$name used"}
     fun endTurn(){if(!finished)enemyTurn()}
     private fun spend(n:Int):Boolean{if(ap<n){logs.add(0,"Not enough AP");return false};ap-=n;return true}
-    private fun baseDamage(mult:Double):Int{var d=(store.str*1.6+store.level*2-current.def*.6+Random.nextDouble(-2.0,3.0))*mult;if(brokenTurns>0)d*=1.25;return max(1,d.roundToInt())}
+    private fun baseDamage(mult:Double):Int{var d=(store.str*1.6+store.level*2-current.def*0.6+Random.nextDouble(-2.0,3.0))*mult;if(brokenTurns>0)d*=1.25;return max(1,d.roundToInt())}
     private fun hit(dmg:Int,br:Int,label:String){enemyHp=(enemyHp-dmg).coerceAtLeast(0);enemyBreak=(enemyBreak-br).coerceAtLeast(0);breakThisRound+=br;logs.add(0,"$label: $dmg damage, $br Break");if(enemyBreak==0&&brokenTurns==0){brokenTurns=2;logs.add(0,"BREAK — action cancelled; +25% damage next turn")};if(enemyHp<=0)defeated()}
     private fun autoTurn(){if(!finished&&ap<=0)enemyTurn()}
     private fun enemyTurn(){
         if(finished)return;if(enemyHp<=0){defeated();return}
         if(brokenTurns>0){logs.add(0,"${current.name}'s action was cancelled by BREAK");brokenTurns--;nextRound();return}
         if(intent.interrupt>0&&breakThisRound>=intent.interrupt){logs.add(0,"INTERRUPT — ${intent.name} cancelled");nextRound();return}
-        repeat(intent.hits){var d=Random.nextInt(intent.min,intent.max+1)-(store.vit*.18).roundToInt();d=max(1,d);if(guarded)d=max(1,(d*(if(perfectGuard).2 else .5)).roundToInt());playerHp=(playerHp-d).coerceAtLeast(0);logs.add(0,"${intent.name}: $d damage")}
+        repeat(intent.hits){var d=Random.nextInt(intent.min,intent.max+1)-(store.vit*0.18).roundToInt();d=max(1,d);if(guarded)d=max(1,(d*(if(perfectGuard)0.2 else 0.5)).roundToInt());playerHp=(playerHp-d).coerceAtLeast(0);logs.add(0,"${intent.name}: $d damage")}
         if(intent.bleed&&!guarded){bleedTurns=2;logs.add(0,"BLEED inflicted")}
         if(perfectGuard){enemyBreak=(enemyBreak-8).coerceAtLeast(0);logs.add(0,"Perfect Guard: 8 Break")}
         if(playerHp<=0)lose() else nextRound()
