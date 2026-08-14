@@ -1,0 +1,40 @@
+name: Build The System Android v11
+on:
+  push:
+    branches: [ "android-v11-stable" ]
+    paths-ignore: [ "android-builds/**" ]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK
+        run: yes | sdkmanager "platforms;android-36" "build-tools;36.0.0"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - name: Build signed release APK
+        working-directory: android-v10-4
+        run: gradle :app:assembleRelease --stacktrace
+      - name: Publish latest APK on stable branch
+        run: |
+          mkdir -p android-builds
+          cp android-v10-4/app/build/outputs/apk/release/app-release.apk android-builds/TheSystem-latest.apk
+          cp android-v10-4/app/build/outputs/apk/release/app-release.apk android-builds/TheSystem-v11.0.apk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add android-builds/TheSystem-latest.apk android-builds/TheSystem-v11.0.apk
+          git commit -m "Publish The System v11.0 APK" || exit 0
+          git push
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TheSystem-v11.0-release-apk
+          path: android-v10-4/app/build/outputs/apk/release/app-release.apk
