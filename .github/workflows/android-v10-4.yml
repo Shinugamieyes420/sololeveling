@@ -1,4 +1,4 @@
-name: Build Android v10.4 APK
+name: Export Android APK Toolchain
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  toolchain:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,18 +15,19 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: android-actions/setup-android@v3
-      - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.7'
       - name: Install Android SDK 35
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
-      - name: Build debug APK
-        working-directory: android-native-v10-4
-        run: gradle assembleDebug --stacktrace
-      - name: Rename APK
-        run: cp android-native-v10-4/app/build/outputs/apk/debug/app-debug.apk THE_SYSTEM_v10.4_Android.apk
+      - name: Pack minimal Android compiler/signing tools
+        run: |
+          mkdir -p toolkit/build-tools
+          cp "$ANDROID_HOME/platforms/android-35/android.jar" toolkit/android.jar
+          cp "$ANDROID_HOME/build-tools/35.0.0/d8" toolkit/build-tools/d8
+          cp "$ANDROID_HOME/build-tools/35.0.0/apksigner" toolkit/build-tools/apksigner
+          cp "$ANDROID_HOME/build-tools/35.0.0/zipalign" toolkit/build-tools/zipalign
+          cp -R "$ANDROID_HOME/build-tools/35.0.0/lib" toolkit/build-tools/lib
+          chmod +x toolkit/build-tools/d8 toolkit/build-tools/apksigner toolkit/build-tools/zipalign
       - uses: actions/upload-artifact@v4
         with:
-          name: THE_SYSTEM_v10.4_Android_APK
-          path: THE_SYSTEM_v10.4_Android.apk
+          name: android-apk-toolchain-35
+          path: toolkit
           if-no-files-found: error
