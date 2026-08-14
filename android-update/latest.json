@@ -1,0 +1,7 @@
+{
+  "versionCode": 11000,
+  "versionName": "11.0",
+  "channel": "stable",
+  "downloadUrl": "https://raw.githubusercontent.com/Shinugamieyes420/sololeveling/android-v11-stable/android-builds/TheSystem-latest.apk",
+  "notes": "Player Awakening update: System overlay UI, Hunter Rank, Job Change Dungeon, progression rework, responsive Android layout and stable update channel."
+}
