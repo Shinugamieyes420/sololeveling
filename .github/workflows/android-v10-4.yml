@@ -19,13 +19,14 @@ jobs:
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: Pack minimal Android compiler/signing tools
         run: |
-          mkdir -p toolkit/build-tools
+          mkdir -p toolkit/build-tools/lib64
           cp "$ANDROID_HOME/platforms/android-35/android.jar" toolkit/android.jar
           cp "$ANDROID_HOME/build-tools/35.0.0/aapt2" toolkit/build-tools/aapt2
           cp "$ANDROID_HOME/build-tools/35.0.0/d8" toolkit/build-tools/d8
           cp "$ANDROID_HOME/build-tools/35.0.0/apksigner" toolkit/build-tools/apksigner
           cp "$ANDROID_HOME/build-tools/35.0.0/zipalign" toolkit/build-tools/zipalign
           cp -R "$ANDROID_HOME/build-tools/35.0.0/lib" toolkit/build-tools/lib
+          cp "$ANDROID_HOME/build-tools/35.0.0/lib64/libc++.so" toolkit/build-tools/lib64/libc++.so
           chmod +x toolkit/build-tools/aapt2 toolkit/build-tools/d8 toolkit/build-tools/apksigner toolkit/build-tools/zipalign
       - uses: actions/upload-artifact@v4
         with:
